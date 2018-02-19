@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06AA5FC6-E771-4904-AC95-CF8A48EC6E07}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CodeFirstNewDatabaseSample</RootNamespace>
+    <AssemblyName>CodeFirstNewDatabaseSample</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\201802091023032_InitialCreate.cs" />
+    <Compile Include="Migrations\201802091023032_InitialCreate.Designer.cs">
+      <DependentUpon>201802091023032_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802091032115_AddUrl.cs" />
+    <Compile Include="Migrations\201802091032115_AddUrl.Designer.cs">
+      <DependentUpon>201802091032115_AddUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802091048191_AddUrl1.cs" />
+    <Compile Include="Migrations\201802091048191_AddUrl1.Designer.cs">
+      <DependentUpon>201802091048191_AddUrl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802091052317_AddUser.cs" />
+    <Compile Include="Migrations\201802091052317_AddUser.Designer.cs">
+      <DependentUpon>201802091052317_AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802091055303_ChangeDisplayName.cs" />
+    <Compile Include="Migrations\201802091055303_ChangeDisplayName.Designer.cs">
+      <DependentUpon>201802091055303_ChangeDisplayName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802161033524_Organization.cs" />
+    <Compile Include="Migrations\201802161033524_Organization.Designer.cs">
+      <DependentUpon>201802161033524_Organization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802161037162_Organization1.cs" />
+    <Compile Include="Migrations\201802161037162_Organization1.Designer.cs">
+      <DependentUpon>201802161037162_Organization1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802161041127_Organization2.cs" />
+    <Compile Include="Migrations\201802161041127_Organization2.Designer.cs">
+      <DependentUpon>201802161041127_Organization2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171158297_ChangeDisplayName1.cs" />
+    <Compile Include="Migrations\201802171158297_ChangeDisplayName1.Designer.cs">
+      <DependentUpon>201802171158297_ChangeDisplayName1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171209491_Organization3.cs" />
+    <Compile Include="Migrations\201802171209491_Organization3.Designer.cs">
+      <DependentUpon>201802171209491_Organization3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171212101_Organization4.cs" />
+    <Compile Include="Migrations\201802171212101_Organization4.Designer.cs">
+      <DependentUpon>201802171212101_Organization4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171214321_Organization5.cs" />
+    <Compile Include="Migrations\201802171214321_Organization5.Designer.cs">
+      <DependentUpon>201802171214321_Organization5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171215042_Organization6.cs" />
+    <Compile Include="Migrations\201802171215042_Organization6.Designer.cs">
+      <DependentUpon>201802171215042_Organization6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171218229_Organization7.cs" />
+    <Compile Include="Migrations\201802171218229_Organization7.Designer.cs">
+      <DependentUpon>201802171218229_Organization7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171415071_Country.cs" />
+    <Compile Include="Migrations\201802171415071_Country.Designer.cs">
+      <DependentUpon>201802171415071_Country.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171417477_Country1.cs" />
+    <Compile Include="Migrations\201802171417477_Country1.Designer.cs">
+      <DependentUpon>201802171417477_Country1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171418320_Country2.cs" />
+    <Compile Include="Migrations\201802171418320_Country2.Designer.cs">
+      <DependentUpon>201802171418320_Country2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171421448_Country3.cs" />
+    <Compile Include="Migrations\201802171421448_Country3.Designer.cs">
+      <DependentUpon>201802171421448_Country3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171422259_Country4.cs" />
+    <Compile Include="Migrations\201802171422259_Country4.Designer.cs">
+      <DependentUpon>201802171422259_Country4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171424143_Country5.cs" />
+    <Compile Include="Migrations\201802171424143_Country5.Designer.cs">
+      <DependentUpon>201802171424143_Country5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171425300_Homelands.cs" />
+    <Compile Include="Migrations\201802171425300_Homelands.Designer.cs">
+      <DependentUpon>201802171425300_Homelands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171435502_Homelands1.cs" />
+    <Compile Include="Migrations\201802171435502_Homelands1.Designer.cs">
+      <DependentUpon>201802171435502_Homelands1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171436299_Country6.cs" />
+    <Compile Include="Migrations\201802171436299_Country6.Designer.cs">
+      <DependentUpon>201802171436299_Country6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171437066_Organization8.cs" />
+    <Compile Include="Migrations\201802171437066_Organization8.Designer.cs">
+      <DependentUpon>201802171437066_Organization8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171440145_Organization9.cs" />
+    <Compile Include="Migrations\201802171440145_Organization9.Designer.cs">
+      <DependentUpon>201802171440145_Organization9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171456326_Organization10.cs" />
+    <Compile Include="Migrations\201802171456326_Organization10.Designer.cs">
+      <DependentUpon>201802171456326_Organization10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171459319_Organization11.cs" />
+    <Compile Include="Migrations\201802171459319_Organization11.Designer.cs">
+      <DependentUpon>201802171459319_Organization11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171459498_Country7.cs" />
+    <Compile Include="Migrations\201802171459498_Country7.Designer.cs">
+      <DependentUpon>201802171459498_Country7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171500012_Countries.cs" />
+    <Compile Include="Migrations\201802171500012_Countries.Designer.cs">
+      <DependentUpon>201802171500012_Countries.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171510474_Country8.cs" />
+    <Compile Include="Migrations\201802171510474_Country8.Designer.cs">
+      <DependentUpon>201802171510474_Country8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171512332_Country9.cs" />
+    <Compile Include="Migrations\201802171512332_Country9.Designer.cs">
+      <DependentUpon>201802171512332_Country9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171522164_Country10.cs" />
+    <Compile Include="Migrations\201802171522164_Country10.Designer.cs">
+      <DependentUpon>201802171522164_Country10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171523468_Organization12.cs" />
+    <Compile Include="Migrations\201802171523468_Organization12.Designer.cs">
+      <DependentUpon>201802171523468_Organization12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171526362_Organization13.cs" />
+    <Compile Include="Migrations\201802171526362_Organization13.Designer.cs">
+      <DependentUpon>201802171526362_Organization13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171528364_Organization14.cs" />
+    <Compile Include="Migrations\201802171528364_Organization14.Designer.cs">
+      <DependentUpon>201802171528364_Organization14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171528532_Country11.cs" />
+    <Compile Include="Migrations\201802171528532_Country11.Designer.cs">
+      <DependentUpon>201802171528532_Country11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171529373_AddCountry.cs" />
+    <Compile Include="Migrations\201802171529373_AddCountry.Designer.cs">
+      <DependentUpon>201802171529373_AddCountry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171529587_AddOrganization.cs" />
+    <Compile Include="Migrations\201802171529587_AddOrganization.Designer.cs">
+      <DependentUpon>201802171529587_AddOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171530463_AddCountry1.cs" />
+    <Compile Include="Migrations\201802171530463_AddCountry1.Designer.cs">
+      <DependentUpon>201802171530463_AddCountry1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171531029_AddOrganization1.cs" />
+    <Compile Include="Migrations\201802171531029_AddOrganization1.Designer.cs">
+      <DependentUpon>201802171531029_AddOrganization1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802171534062_AddOrganization2.cs" />
+    <Compile Include="Migrations\201802171534062_AddOrganization2.Designer.cs">
+      <DependentUpon>201802171534062_AddOrganization2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201802091023032_InitialCreate.resx">
+      <DependentUpon>201802091023032_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802091032115_AddUrl.resx">
+      <DependentUpon>201802091032115_AddUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802091048191_AddUrl1.resx">
+      <DependentUpon>201802091048191_AddUrl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802091052317_AddUser.resx">
+      <DependentUpon>201802091052317_AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802091055303_ChangeDisplayName.resx">
+      <DependentUpon>201802091055303_ChangeDisplayName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161033524_Organization.resx">
+      <DependentUpon>201802161033524_Organization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161037162_Organization1.resx">
+      <DependentUpon>201802161037162_Organization1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802161041127_Organization2.resx">
+      <DependentUpon>201802161041127_Organization2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171158297_ChangeDisplayName1.resx">
+      <DependentUpon>201802171158297_ChangeDisplayName1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171209491_Organization3.resx">
+      <DependentUpon>201802171209491_Organization3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171212101_Organization4.resx">
+      <DependentUpon>201802171212101_Organization4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171214321_Organization5.resx">
+      <DependentUpon>201802171214321_Organization5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171215042_Organization6.resx">
+      <DependentUpon>201802171215042_Organization6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171218229_Organization7.resx">
+      <DependentUpon>201802171218229_Organization7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171415071_Country.resx">
+      <DependentUpon>201802171415071_Country.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171417477_Country1.resx">
+      <DependentUpon>201802171417477_Country1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171418320_Country2.resx">
+      <DependentUpon>201802171418320_Country2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171421448_Country3.resx">
+      <DependentUpon>201802171421448_Country3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171422259_Country4.resx">
+      <DependentUpon>201802171422259_Country4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171424143_Country5.resx">
+      <DependentUpon>201802171424143_Country5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171425300_Homelands.resx">
+      <DependentUpon>201802171425300_Homelands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171435502_Homelands1.resx">
+      <DependentUpon>201802171435502_Homelands1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171436299_Country6.resx">
+      <DependentUpon>201802171436299_Country6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171437066_Organization8.resx">
+      <DependentUpon>201802171437066_Organization8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171440145_Organization9.resx">
+      <DependentUpon>201802171440145_Organization9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171456326_Organization10.resx">
+      <DependentUpon>201802171456326_Organization10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171459319_Organization11.resx">
+      <DependentUpon>201802171459319_Organization11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171459498_Country7.resx">
+      <DependentUpon>201802171459498_Country7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171500012_Countries.resx">
+      <DependentUpon>201802171500012_Countries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171510474_Country8.resx">
+      <DependentUpon>201802171510474_Country8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171512332_Country9.resx">
+      <DependentUpon>201802171512332_Country9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171522164_Country10.resx">
+      <DependentUpon>201802171522164_Country10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171523468_Organization12.resx">
+      <DependentUpon>201802171523468_Organization12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171526362_Organization13.resx">
+      <DependentUpon>201802171526362_Organization13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171528364_Organization14.resx">
+      <DependentUpon>201802171528364_Organization14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171528532_Country11.resx">
+      <DependentUpon>201802171528532_Country11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171529373_AddCountry.resx">
+      <DependentUpon>201802171529373_AddCountry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171529587_AddOrganization.resx">
+      <DependentUpon>201802171529587_AddOrganization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171530463_AddCountry1.resx">
+      <DependentUpon>201802171530463_AddCountry1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171531029_AddOrganization1.resx">
+      <DependentUpon>201802171531029_AddOrganization1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802171534062_AddOrganization2.resx">
+      <DependentUpon>201802171534062_AddOrganization2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
