@@ -20,11 +20,13 @@ namespace Handin2_1
             Adresse obj3 = new Adresse();
 
             obj1.firstName = "Hans";
-            obj2.number = 55;
+            obj2.number = 200;
+            obj2.homenumber = new List<int>(); //Tilføjer en ny liste.
+            obj2.homenumber.Add(obj2.number); //Tilføjer nummer
             obj3.city = "Adolfslund";
 
 
-            Console.WriteLine($"Navn: {obj1.firstName} \nNummer: {obj2.number} \nBy: {obj3.city}");
+            Console.WriteLine($"Navn: {obj1.firstName} \nNummer: {obj2.homenumber[0]} \nBy: {obj3.city}");
         }
     }
 

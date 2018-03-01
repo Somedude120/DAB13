@@ -15,7 +15,6 @@ namespace Handin2_1
         public virtual List<int> homenumber { get; set; }
         public virtual List<int> worknumber { get; set; }
         public virtual List<int> mobilenumber { get; set; }
-
-       
+        
     }
 }
