@@ -9,17 +9,10 @@ namespace Handin2_1
 {
     public class Address
     {
-        private List<string> City { get; set; }
+        public List<City> Cities { get; set; }
         public virtual int adressId { get; set; }
         public virtual string contact { get; set; }
 
-        //Tilføj by i listen byer
-        public virtual string cityAdd(City name)
-        {
-            string cityname = name.cityname;
-            City.Add(cityname);
-
-            return cityname;
-        }
+        public virtual Personindex index { get; set; }
     }
 }

@@ -9,11 +9,12 @@ namespace Handin2_1
     public class Contact
     {
         public virtual int PersonId { get; set; }
-        public virtual string firstName { get; set; }
-        public virtual string middleName { get; set; }
-        public virtual string lastName { get; set; }
+        public virtual string firstname { get; set; }
+        public virtual string middlename { get; set; }
+        public virtual string surname { get; set; }
         public virtual string type { get; set; }
-        
+
+        public virtual Personindex index { get; set; }//ref til index
     }
     
 }

@@ -46,6 +46,7 @@
     <Compile Include="altAddress.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="Personindex.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Telephone.cs" />

@@ -9,12 +9,6 @@ namespace Handin2_1
 {
     public class altAddress
     {
-        public virtual void refAddress()
-        {
-            
-            List<int> client;
-            
-        }
-        
+
     }
 }

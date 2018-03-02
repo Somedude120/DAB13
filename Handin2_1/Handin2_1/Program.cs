@@ -14,21 +14,24 @@ namespace Handin2_1
     {
         static void Main(string[] args)
         {
-            //Instantiering af de forskellige POCO klasser.
-            Contact obj1 = new Contact();
-            Telephone obj2 = new Telephone();
-            Address obj3 = new Address();
-            City obj4 = new City();
-            obj4.cityname = "Adolflund";
+            Personindex Hans = new Personindex();
+            Contact Contacts = new Contact();
+            Address Addresses = new Address();
+            City Cities = new City();
+            Telephone Phones = new Telephone();
+            City Streetname = new City();
+            Streetname.cityname = "Dusselstrasse";
 
-            obj1.firstName = "Hans";
-            obj2.number = 200;
-            obj2.homenumber = new List<int>(); //Tilføjer en ny liste.
-            obj2.homenumber.Add(obj2.number); //Tilføjer nummer
-            obj3.cityAdd(obj4);
+            Phones.homenumber = new List<int>();//Opretter ny liste til homenumbers
 
+            string HansName = Contacts.firstname = "Hans"; //Tilføj navn
+            string HansCity = Cities.cityname = "Dusseldorf"; //Tilføj by
+            string HansStreet = Streetname.cityname; //Tilføj gade
+            Phones.homenumber.Add(55); //Tilføj til homenumber listen
+            int HansPhone = Phones.homenumber[0];
+            string HansMail = Hans.Email = "SSZuge@gmail.com";
 
-            Console.WriteLine($"Navn: {obj1.firstName} \nNummer: {obj2.homenumber[0]} \nBy: {obj3}");
+            Console.WriteLine($"Name: {HansName}\nStreet: {HansStreet}\nCity: {HansCity}\nPhones: {HansPhone}\nEmail: {HansMail}");
         }
     }
 
