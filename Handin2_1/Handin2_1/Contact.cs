@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Handin2_1
 {
-    public class Person
+    public class Contact
     {
         public virtual int PersonId { get; set; }
         public virtual string firstName { get; set; }
