@@ -9,6 +9,6 @@ namespace Handin2_1
 {
     public class altAddress
     {
-
+        public virtual Address type { get; set; }
     }
 }

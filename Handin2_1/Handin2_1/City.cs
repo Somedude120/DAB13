@@ -15,5 +15,7 @@ namespace Handin2_1
         public virtual string cityname { get; set; }
         public virtual int zipcode { get; set; }
 
+        public virtual Personindex index { get; set; }
+
     }
 }
