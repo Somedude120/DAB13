@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Lisbeth og Daniel
+//Studienr: 201404006 - LWL
+//Studienr: 201601915 - DPH
+
 //Ideen med POCO klasser er at de er simple datastrukturer som ikke har nogen form for tilknytning til hinanden
 //Derfor viser jeg her de 3 klasser + main at klasserne er bygget og senere hen skal handin 2 tilknyttes
 //Til hinanden så systemet faktisk giver mening.
@@ -21,6 +25,7 @@ namespace Handin2_1
             Telephone Phones = new Telephone();
             City Streetname = new City();
             Streetname.cityname = "Dusselstrasse";
+
 
             Phones.homenumber = new List<int>();//Opretter ny liste til homenumbers
 
