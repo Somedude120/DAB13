@@ -33,7 +33,7 @@ namespace Handin2_2_RDB.Migrations
                 "dbo.Phones",
                 c => new
                     {
-                        Number = c.Int(nullable: false, identity: true),
+                        Number = c.Int(nullable: true, identity: true),
                         Info = c.String(),
                     })
                 .PrimaryKey(t => t.Number);

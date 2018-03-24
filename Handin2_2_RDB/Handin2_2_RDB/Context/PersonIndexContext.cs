@@ -11,6 +11,7 @@ namespace Handin2_2_RDB.Context
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Phone> Phones { get; set; }
         public DbSet<AltAddress> AltAdresses { get; set; }
+        public DbSet<City> Cities { get; set; }
 
     }
 }

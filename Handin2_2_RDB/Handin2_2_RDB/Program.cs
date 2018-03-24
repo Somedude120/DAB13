@@ -37,7 +37,7 @@ namespace Handin2_2_RDB.Main
 
                 //Udvidelse af organizationsnavn
                 Console.WriteLine("Please enter a phone number.");
-                var number = Console.Read();
+                var number = Console.ReadLine();
 
                 //Add nyt navn til organizationstabellen
                 var phone = new Phone { Number = number };
