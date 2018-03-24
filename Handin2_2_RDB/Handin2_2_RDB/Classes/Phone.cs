@@ -8,7 +8,7 @@ namespace Handin2_2_RDB.Classes
         //private int _number;
         //private string _info;
 
-        public int Number { get; set; }
+        public string Number { get; set; }
         public string Info { get; set; }
     }
 }
