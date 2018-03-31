@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201803241401067_PersonIndexContext.Designer.cs">
       <DependentUpon>201803241401067_PersonIndexContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803311323170_PersonIndex.cs" />
+    <Compile Include="Migrations\201803311323170_PersonIndex.Designer.cs">
+      <DependentUpon>201803311323170_PersonIndex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803241401067_PersonIndexContext.resx">
       <DependentUpon>201803241401067_PersonIndexContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311323170_PersonIndex.resx">
+      <DependentUpon>201803311323170_PersonIndex.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
