@@ -47,8 +47,8 @@ namespace Handin2_2_RDB.Main
                 }
 
                 //Add et nyt navn til bloggen DB
-                var contact = new Contacts { Name = name, MiddleName = middlename, SurName = surname};
-                db.Contacts.Add(contact);
+                var person = new Persons { Name = name, MiddleName = middlename, SurName = surname};
+                db.People.Add(person);
                 db.SaveChanges();
 
                 //Udvidelse af organizationsnavn
