@@ -6,7 +6,7 @@ namespace Handin2_2_RDB.Context
 {
     public class PersonIndexContext : DbContext
     {
-        
+        public  DbSet<Contacts> Contacts { get; set; }
         public DbSet<Persons> People { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Phone> Phones { get; set; }

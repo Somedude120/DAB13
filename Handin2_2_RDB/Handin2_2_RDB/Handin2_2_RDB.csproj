@@ -108,6 +108,18 @@
     <Compile Include="Migrations\201803311419093_Persons2.Designer.cs">
       <DependentUpon>201803311419093_Persons2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803311427242_Contacts2.cs" />
+    <Compile Include="Migrations\201803311427242_Contacts2.Designer.cs">
+      <DependentUpon>201803311427242_Contacts2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803311429551_Contacts3.cs" />
+    <Compile Include="Migrations\201803311429551_Contacts3.Designer.cs">
+      <DependentUpon>201803311429551_Contacts3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803311430515_Contacts4.cs" />
+    <Compile Include="Migrations\201803311430515_Contacts4.Designer.cs">
+      <DependentUpon>201803311430515_Contacts4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,6 +167,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803311419093_Persons2.resx">
       <DependentUpon>201803311419093_Persons2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311427242_Contacts2.resx">
+      <DependentUpon>201803311427242_Contacts2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311429551_Contacts3.resx">
+      <DependentUpon>201803311429551_Contacts3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311430515_Contacts4.resx">
+      <DependentUpon>201803311430515_Contacts4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

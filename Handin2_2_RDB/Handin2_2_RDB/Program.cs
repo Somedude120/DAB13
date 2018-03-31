@@ -46,6 +46,12 @@ namespace Handin2_2_RDB.Main
                     surname = "N/A";
                 }
 
+                var email = Console.ReadLine();
+                if (email == "")
+                {
+                    email = "N/A";
+                }
+
                 //Add et nyt navn til bloggen DB
                 var person = new Persons { Name = name, MiddleName = middlename, SurName = surname};
                 db.People.Add(person);
