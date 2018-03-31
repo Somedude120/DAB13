@@ -64,24 +64,24 @@ namespace Handin2_2_RDB.Main
 
 
                 //Anden udvidelse, tilsæt brugernavn til organisationen (tror jeg)
-                Console.WriteLine("Enter your username, it will be added to the org");
-                var username = Console.ReadLine();
+                //Console.WriteLine("Enter your username, it will be added to the org");
+                //var username = Console.ReadLine();
 
                 ////Add nyt navn til brugertabellen
                 //var user = new User { Username = username, Organizations = org }; //Tilføjer med reference organizations = org
                 //db.Users.Add(user);
                 //db.SaveChanges();
 
-                //// Display alle Blogs fra database 
-                //var query = from b in db.Blogs
-                //            orderby b.Name
-                //            select b;
+                // Display alle Blogs fra database 
+                var query = from b in db.People
+                            orderby b.Name
+                            select b;
 
-                //Console.WriteLine("All blogs in the database:");
-                //foreach (var item in query)
-                //{
-                //    Console.WriteLine(item.Name);
-                //}
+                Console.WriteLine("All People in the database:");
+                foreach (var item in query)
+                {
+                    Console.WriteLine(item.Name);
+                }
                 ////Punkt 8, udskriv alle bruger og organizationer
 
                 //var u_query = from u in db.Users
