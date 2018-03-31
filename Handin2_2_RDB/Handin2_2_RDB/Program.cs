@@ -33,7 +33,7 @@ namespace Handin2_2_RDB.Main
                 Console.WriteLine("Welcome to Person Index Relational Database");
 
                 // Create og save en ny Contact 
-                Console.Write("Enter a name, middlename and surname for a new Contact: ");
+                Console.Write("Enter a name, middlename, surname and email for a new Person: ");
                 var name = Console.ReadLine();
                 var middlename = Console.ReadLine();
                 if (middlename == "")
@@ -51,7 +51,7 @@ namespace Handin2_2_RDB.Main
                 {
                     email = "N/A";
                 }
-
+                Console.WriteLine("Please wait while adding to database.");
                 //Add et nyt navn til bloggen DB
                 var person = new Persons { Name = name, MiddleName = middlename, SurName = surname};
                 db.People.Add(person);
