@@ -53,6 +53,7 @@
     <Compile Include="Classes\AltAddress.cs" />
     <Compile Include="Classes\City.cs" />
     <Compile Include="Classes\Contacts.cs" />
+    <Compile Include="Classes\Persons.cs" />
     <Compile Include="Classes\Phone.cs" />
     <Compile Include="Context\PersonIndexContext.cs" />
     <Compile Include="Migrations\201803231324494_Contacts.cs" />
@@ -95,6 +96,14 @@
     <Compile Include="Migrations\201803311339299_Phones1.Designer.cs">
       <DependentUpon>201803311339299_Phones1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803311408487_Persons.cs" />
+    <Compile Include="Migrations\201803311408487_Persons.Designer.cs">
+      <DependentUpon>201803311408487_Persons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803311410240_Persons1.cs" />
+    <Compile Include="Migrations\201803311410240_Persons1.Designer.cs">
+      <DependentUpon>201803311410240_Persons1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +142,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803311339299_Phones1.resx">
       <DependentUpon>201803311339299_Phones1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311408487_Persons.resx">
+      <DependentUpon>201803311408487_Persons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311410240_Persons1.resx">
+      <DependentUpon>201803311410240_Persons1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
