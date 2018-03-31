@@ -75,6 +75,26 @@
     <Compile Include="Migrations\201803311323170_PersonIndex.Designer.cs">
       <DependentUpon>201803311323170_PersonIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803311329138_PersonIndex1.cs" />
+    <Compile Include="Migrations\201803311329138_PersonIndex1.Designer.cs">
+      <DependentUpon>201803311329138_PersonIndex1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803311334010_Phones.cs" />
+    <Compile Include="Migrations\201803311334010_Phones.Designer.cs">
+      <DependentUpon>201803311334010_Phones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803311334219_Phone.cs" />
+    <Compile Include="Migrations\201803311334219_Phone.Designer.cs">
+      <DependentUpon>201803311334219_Phone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803311339059_Phone1.cs" />
+    <Compile Include="Migrations\201803311339059_Phone1.Designer.cs">
+      <DependentUpon>201803311339059_Phone1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803311339299_Phones1.cs" />
+    <Compile Include="Migrations\201803311339299_Phones1.Designer.cs">
+      <DependentUpon>201803311339299_Phones1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +118,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803311323170_PersonIndex.resx">
       <DependentUpon>201803311323170_PersonIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311329138_PersonIndex1.resx">
+      <DependentUpon>201803311329138_PersonIndex1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311334010_Phones.resx">
+      <DependentUpon>201803311334010_Phones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311334219_Phone.resx">
+      <DependentUpon>201803311334219_Phone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311339059_Phone1.resx">
+      <DependentUpon>201803311339059_Phone1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803311339299_Phones1.resx">
+      <DependentUpon>201803311339299_Phones1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 using Handin2_2_RDB.Classes;
 using Handin2_2_RDB.Context;
 
+/*
+ * Welcome to the PersonIndex of Group 13
+ * By Daniel and Lisbeth
+ */
+
+
 namespace Handin2_2_RDB.Main
 {
     class Program
@@ -24,14 +30,24 @@ namespace Handin2_2_RDB.Main
                 //}
 
 
-
+                Console.WriteLine("Welcome to Person Index Relational Database");
 
                 // Create og save en ny Contact 
-                Console.Write("Enter a name for a new Contact: ");
+                Console.Write("Enter a name, middlename and surname for a new Contact: ");
                 var name = Console.ReadLine();
+                var middlename = Console.ReadLine();
+                if (middlename == "")
+                {
+                    middlename = "N/A";
+                }
+                var surname = Console.ReadLine();
+                if (surname == "")
+                {
+                    surname = "N/A";
+                }
 
                 //Add et nyt navn til bloggen DB
-                var contact = new Contacts { Name = name };
+                var contact = new Contacts { Name = name, MiddleName = middlename, SurName = surname};
                 db.Contacts.Add(contact);
                 db.SaveChanges();
 
