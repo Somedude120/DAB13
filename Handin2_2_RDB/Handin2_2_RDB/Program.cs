@@ -19,7 +19,6 @@ namespace Handin2_2_RDB.Main
     {
         static void Main(string[] args)
         {
-
             //Console.WriteLine("HANS mit em flammenwerfer"); //CRUCIAL DO NOT DELETE, IT WILL FUCK UP THE PROGRAM IF REMOVED
             try
             {
@@ -32,8 +31,7 @@ namespace Handin2_2_RDB.Main
 
                     do
                     {
-
-
+                        
                         //Tilføjet CRUD
                         Console.WriteLine("\nCRUD OPERATIONS\n--------------");
                         Console.WriteLine("1.Add new Person");
@@ -58,11 +56,8 @@ namespace Handin2_2_RDB.Main
                             case 4:
                                 OPS.DeleteContact(db);
                                 break;
-
                         }
-
                     } while (choice != 5);
-
                 }
             }
             catch (Exception e)

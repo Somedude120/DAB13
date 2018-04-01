@@ -130,6 +130,10 @@
     <Compile Include="Migrations\201804011329261_Contacts5.Designer.cs">
       <DependentUpon>201804011329261_Contacts5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804011437457_Address.cs" />
+    <Compile Include="Migrations\201804011437457_Address.Designer.cs">
+      <DependentUpon>201804011437457_Address.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804011329261_Contacts5.resx">
       <DependentUpon>201804011329261_Contacts5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011437457_Address.resx">
+      <DependentUpon>201804011437457_Address.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

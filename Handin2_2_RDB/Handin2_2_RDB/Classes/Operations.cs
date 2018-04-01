@@ -42,6 +42,12 @@ namespace Handin2_2_RDB.Classes
                 //Add et nyt navn til DB
                 var person = new Persons { Name = name, MiddleName = middlename, SurName = surname, Email = email};
                 db.People.Add(person);
+
+                Console.WriteLine("Enter Address: Streetname, City, number");
+                var street = Console.ReadLine();
+
+                var address = new Address { };
+
                 db.SaveChanges();
 
             }
@@ -71,6 +77,7 @@ namespace Handin2_2_RDB.Classes
                         var person = db.People.First<Persons>();
                         person.Name = name;
                         Console.WriteLine($"Update Successfully on id {e.PersonId}");
+                        db.SaveChanges();
                         break;
 
                     }
