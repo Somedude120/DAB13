@@ -10,11 +10,12 @@ namespace Handin2_2_RDB.Classes
         //private List<Contacts> _contactlListist;
         public int AddressId { get; set; }
 
-        public string City { get; set; }
+        //public string City { get; set; }
 
-        public List<City> Streets { get; set; }
-        public List<Contacts> ContactList { get; set; }
+        //Lav en en til en key
+        public virtual City Placement { get; set; }
+        //public List<Contacts> ContactList { get; set; }
         //Der kan komme mange til addressen, men personen kan kun have 1 adresse
-        public List<Persons> PersonList { get; set; }
+        //public List<Persons> PersonList { get; set; }
     }
 }

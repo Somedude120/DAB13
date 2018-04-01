@@ -58,129 +58,21 @@
     <Compile Include="Classes\Phone.cs" />
     <Compile Include="Context\PersonIndexContext.cs" />
     <Compile Include="Interface\IOperations.cs" />
-    <Compile Include="Migrations\201803231324494_Contacts.cs" />
-    <Compile Include="Migrations\201803231324494_Contacts.Designer.cs">
-      <DependentUpon>201803231324494_Contacts.cs</DependentUpon>
+    <Compile Include="Migrations\201804012100182_Persons.cs" />
+    <Compile Include="Migrations\201804012100182_Persons.Designer.cs">
+      <DependentUpon>201804012100182_Persons.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803241203328_Adresses.cs" />
-    <Compile Include="Migrations\201803241203328_Adresses.Designer.cs">
-      <DependentUpon>201803241203328_Adresses.cs</DependentUpon>
+    <Compile Include="Migrations\201804012103454_Address.cs" />
+    <Compile Include="Migrations\201804012103454_Address.Designer.cs">
+      <DependentUpon>201804012103454_Address.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803241305198_Contacts1.cs" />
-    <Compile Include="Migrations\201803241305198_Contacts1.Designer.cs">
-      <DependentUpon>201803241305198_Contacts1.cs</DependentUpon>
+    <Compile Include="Migrations\201804012105421_Address1.cs" />
+    <Compile Include="Migrations\201804012105421_Address1.Designer.cs">
+      <DependentUpon>201804012105421_Address1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803241401067_PersonIndexContext.cs" />
-    <Compile Include="Migrations\201803241401067_PersonIndexContext.Designer.cs">
-      <DependentUpon>201803241401067_PersonIndexContext.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311323170_PersonIndex.cs" />
-    <Compile Include="Migrations\201803311323170_PersonIndex.Designer.cs">
-      <DependentUpon>201803311323170_PersonIndex.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311329138_PersonIndex1.cs" />
-    <Compile Include="Migrations\201803311329138_PersonIndex1.Designer.cs">
-      <DependentUpon>201803311329138_PersonIndex1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311334010_Phones.cs" />
-    <Compile Include="Migrations\201803311334010_Phones.Designer.cs">
-      <DependentUpon>201803311334010_Phones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311334219_Phone.cs" />
-    <Compile Include="Migrations\201803311334219_Phone.Designer.cs">
-      <DependentUpon>201803311334219_Phone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311339059_Phone1.cs" />
-    <Compile Include="Migrations\201803311339059_Phone1.Designer.cs">
-      <DependentUpon>201803311339059_Phone1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311339299_Phones1.cs" />
-    <Compile Include="Migrations\201803311339299_Phones1.Designer.cs">
-      <DependentUpon>201803311339299_Phones1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311408487_Persons.cs" />
-    <Compile Include="Migrations\201803311408487_Persons.Designer.cs">
-      <DependentUpon>201803311408487_Persons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311410240_Persons1.cs" />
-    <Compile Include="Migrations\201803311410240_Persons1.Designer.cs">
-      <DependentUpon>201803311410240_Persons1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311419093_Persons2.cs" />
-    <Compile Include="Migrations\201803311419093_Persons2.Designer.cs">
-      <DependentUpon>201803311419093_Persons2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311427242_Contacts2.cs" />
-    <Compile Include="Migrations\201803311427242_Contacts2.Designer.cs">
-      <DependentUpon>201803311427242_Contacts2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311429551_Contacts3.cs" />
-    <Compile Include="Migrations\201803311429551_Contacts3.Designer.cs">
-      <DependentUpon>201803311429551_Contacts3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803311430515_Contacts4.cs" />
-    <Compile Include="Migrations\201803311430515_Contacts4.Designer.cs">
-      <DependentUpon>201803311430515_Contacts4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011325338_Persons3.cs" />
-    <Compile Include="Migrations\201804011325338_Persons3.Designer.cs">
-      <DependentUpon>201804011325338_Persons3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011329261_Contacts5.cs" />
-    <Compile Include="Migrations\201804011329261_Contacts5.Designer.cs">
-      <DependentUpon>201804011329261_Contacts5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011437457_Address.cs" />
-    <Compile Include="Migrations\201804011437457_Address.Designer.cs">
-      <DependentUpon>201804011437457_Address.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011457017_Address1.cs" />
-    <Compile Include="Migrations\201804011457017_Address1.Designer.cs">
-      <DependentUpon>201804011457017_Address1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011457341_Address2.cs" />
-    <Compile Include="Migrations\201804011457341_Address2.Designer.cs">
-      <DependentUpon>201804011457341_Address2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011457519_Persons4.cs" />
-    <Compile Include="Migrations\201804011457519_Persons4.Designer.cs">
-      <DependentUpon>201804011457519_Persons4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011458175_Phone2.cs" />
-    <Compile Include="Migrations\201804011458175_Phone2.Designer.cs">
-      <DependentUpon>201804011458175_Phone2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011507443_Phone3.cs" />
-    <Compile Include="Migrations\201804011507443_Phone3.Designer.cs">
-      <DependentUpon>201804011507443_Phone3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011508001_City.cs" />
-    <Compile Include="Migrations\201804011508001_City.Designer.cs">
-      <DependentUpon>201804011508001_City.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011508178_AltAddress.cs" />
-    <Compile Include="Migrations\201804011508178_AltAddress.Designer.cs">
-      <DependentUpon>201804011508178_AltAddress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011509001_Address3.cs" />
-    <Compile Include="Migrations\201804011509001_Address3.Designer.cs">
-      <DependentUpon>201804011509001_Address3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011517111_Contacts6.cs" />
-    <Compile Include="Migrations\201804011517111_Contacts6.Designer.cs">
-      <DependentUpon>201804011517111_Contacts6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011525101_AltAddress1.cs" />
-    <Compile Include="Migrations\201804011525101_AltAddress1.Designer.cs">
-      <DependentUpon>201804011525101_AltAddress1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011525287_Address4.cs" />
-    <Compile Include="Migrations\201804011525287_Address4.Designer.cs">
-      <DependentUpon>201804011525287_Address4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804011527463_City1.cs" />
-    <Compile Include="Migrations\201804011527463_City1.Designer.cs">
-      <DependentUpon>201804011527463_City1.cs</DependentUpon>
+    <Compile Include="Migrations\201804012106252_Addresses.cs" />
+    <Compile Include="Migrations\201804012106252_Addresses.Designer.cs">
+      <DependentUpon>201804012106252_Addresses.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -191,98 +83,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803231324494_Contacts.resx">
-      <DependentUpon>201803231324494_Contacts.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804012100182_Persons.resx">
+      <DependentUpon>201804012100182_Persons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803241203328_Adresses.resx">
-      <DependentUpon>201803241203328_Adresses.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804012103454_Address.resx">
+      <DependentUpon>201804012103454_Address.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803241305198_Contacts1.resx">
-      <DependentUpon>201803241305198_Contacts1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804012105421_Address1.resx">
+      <DependentUpon>201804012105421_Address1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803241401067_PersonIndexContext.resx">
-      <DependentUpon>201803241401067_PersonIndexContext.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311323170_PersonIndex.resx">
-      <DependentUpon>201803311323170_PersonIndex.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311329138_PersonIndex1.resx">
-      <DependentUpon>201803311329138_PersonIndex1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311334010_Phones.resx">
-      <DependentUpon>201803311334010_Phones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311334219_Phone.resx">
-      <DependentUpon>201803311334219_Phone.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311339059_Phone1.resx">
-      <DependentUpon>201803311339059_Phone1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311339299_Phones1.resx">
-      <DependentUpon>201803311339299_Phones1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311408487_Persons.resx">
-      <DependentUpon>201803311408487_Persons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311410240_Persons1.resx">
-      <DependentUpon>201803311410240_Persons1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311419093_Persons2.resx">
-      <DependentUpon>201803311419093_Persons2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311427242_Contacts2.resx">
-      <DependentUpon>201803311427242_Contacts2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311429551_Contacts3.resx">
-      <DependentUpon>201803311429551_Contacts3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803311430515_Contacts4.resx">
-      <DependentUpon>201803311430515_Contacts4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011325338_Persons3.resx">
-      <DependentUpon>201804011325338_Persons3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011329261_Contacts5.resx">
-      <DependentUpon>201804011329261_Contacts5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011437457_Address.resx">
-      <DependentUpon>201804011437457_Address.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011457017_Address1.resx">
-      <DependentUpon>201804011457017_Address1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011457341_Address2.resx">
-      <DependentUpon>201804011457341_Address2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011457519_Persons4.resx">
-      <DependentUpon>201804011457519_Persons4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011458175_Phone2.resx">
-      <DependentUpon>201804011458175_Phone2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011507443_Phone3.resx">
-      <DependentUpon>201804011507443_Phone3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011508001_City.resx">
-      <DependentUpon>201804011508001_City.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011508178_AltAddress.resx">
-      <DependentUpon>201804011508178_AltAddress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011509001_Address3.resx">
-      <DependentUpon>201804011509001_Address3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011517111_Contacts6.resx">
-      <DependentUpon>201804011517111_Contacts6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011525101_AltAddress1.resx">
-      <DependentUpon>201804011525101_AltAddress1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011525287_Address4.resx">
-      <DependentUpon>201804011525287_Address4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804011527463_City1.resx">
-      <DependentUpon>201804011527463_City1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804012106252_Addresses.resx">
+      <DependentUpon>201804012106252_Addresses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
