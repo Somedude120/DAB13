@@ -14,7 +14,10 @@ namespace Handin2_2_RDB.Classes
         public string Type { get; set; }
         public List<Persons> PersonList { get; set; }
         public List<Phone> PhoneList { get; set; }
-        public List<Address> AddressList { get; set; }
+        //Der kan komme mange til addressen, men personen kan kun have 1 adresse
+        public virtual Address Address { get; set; }
+        //Der kan komme mange til mange alternativ addresse
+        public virtual List<AltAddress> AltAddress { get; set; }
         
     }
 }

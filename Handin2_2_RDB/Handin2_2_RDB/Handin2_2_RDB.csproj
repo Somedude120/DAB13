@@ -166,6 +166,22 @@
     <Compile Include="Migrations\201804011509001_Address3.Designer.cs">
       <DependentUpon>201804011509001_Address3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804011517111_Contacts6.cs" />
+    <Compile Include="Migrations\201804011517111_Contacts6.Designer.cs">
+      <DependentUpon>201804011517111_Contacts6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011525101_AltAddress1.cs" />
+    <Compile Include="Migrations\201804011525101_AltAddress1.Designer.cs">
+      <DependentUpon>201804011525101_AltAddress1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011525287_Address4.cs" />
+    <Compile Include="Migrations\201804011525287_Address4.Designer.cs">
+      <DependentUpon>201804011525287_Address4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011527463_City1.cs" />
+    <Compile Include="Migrations\201804011527463_City1.Designer.cs">
+      <DependentUpon>201804011527463_City1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -255,6 +271,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804011509001_Address3.resx">
       <DependentUpon>201804011509001_Address3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011517111_Contacts6.resx">
+      <DependentUpon>201804011517111_Contacts6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011525101_AltAddress1.resx">
+      <DependentUpon>201804011525101_AltAddress1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011525287_Address4.resx">
+      <DependentUpon>201804011525287_Address4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011527463_City1.resx">
+      <DependentUpon>201804011527463_City1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

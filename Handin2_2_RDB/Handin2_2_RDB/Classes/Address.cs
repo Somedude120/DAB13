@@ -14,6 +14,7 @@ namespace Handin2_2_RDB.Classes
 
         public List<City> Streets { get; set; }
         public List<Contacts> ContactList { get; set; }
+        //Der kan komme mange til addressen, men personen kan kun have 1 adresse
         public List<Persons> PersonList { get; set; }
     }
 }

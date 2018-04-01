@@ -51,9 +51,12 @@ namespace Handin2_2_RDB.Classes
                 var city = Console.ReadLine();
                 Console.WriteLine("Enter Housenumber");
                 var number = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Zipcode");
+                var zip = Convert.ToInt32(Console.ReadLine());
 
-                var address = new City {StreetName = street, CityName = city, HouseNumber = number};
+                var address = new City {StreetName = street, CityName = city, HouseNumber = number, ZipCode = zip};
                 db.Cities.Add(address);
+
                 
 
 
