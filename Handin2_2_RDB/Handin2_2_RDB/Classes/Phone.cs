@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Handin2_2_RDB.Classes
 {
@@ -6,7 +7,10 @@ namespace Handin2_2_RDB.Classes
     {
         
         [Key]
+        public int PhoneId { get; set; }
         public string Number { get; set; }
         public string Info { get; set; }
+
+        public List<Persons> PersonList { get; set; }
     }
 }

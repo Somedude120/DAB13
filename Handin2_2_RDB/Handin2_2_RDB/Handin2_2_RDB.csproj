@@ -134,6 +134,38 @@
     <Compile Include="Migrations\201804011437457_Address.Designer.cs">
       <DependentUpon>201804011437457_Address.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804011457017_Address1.cs" />
+    <Compile Include="Migrations\201804011457017_Address1.Designer.cs">
+      <DependentUpon>201804011457017_Address1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011457341_Address2.cs" />
+    <Compile Include="Migrations\201804011457341_Address2.Designer.cs">
+      <DependentUpon>201804011457341_Address2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011457519_Persons4.cs" />
+    <Compile Include="Migrations\201804011457519_Persons4.Designer.cs">
+      <DependentUpon>201804011457519_Persons4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011458175_Phone2.cs" />
+    <Compile Include="Migrations\201804011458175_Phone2.Designer.cs">
+      <DependentUpon>201804011458175_Phone2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011507443_Phone3.cs" />
+    <Compile Include="Migrations\201804011507443_Phone3.Designer.cs">
+      <DependentUpon>201804011507443_Phone3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011508001_City.cs" />
+    <Compile Include="Migrations\201804011508001_City.Designer.cs">
+      <DependentUpon>201804011508001_City.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011508178_AltAddress.cs" />
+    <Compile Include="Migrations\201804011508178_AltAddress.Designer.cs">
+      <DependentUpon>201804011508178_AltAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011509001_Address3.cs" />
+    <Compile Include="Migrations\201804011509001_Address3.Designer.cs">
+      <DependentUpon>201804011509001_Address3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,6 +231,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804011437457_Address.resx">
       <DependentUpon>201804011437457_Address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011457017_Address1.resx">
+      <DependentUpon>201804011457017_Address1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011457341_Address2.resx">
+      <DependentUpon>201804011457341_Address2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011457519_Persons4.resx">
+      <DependentUpon>201804011457519_Persons4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011458175_Phone2.resx">
+      <DependentUpon>201804011458175_Phone2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011507443_Phone3.resx">
+      <DependentUpon>201804011507443_Phone3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011508001_City.resx">
+      <DependentUpon>201804011508001_City.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011508178_AltAddress.resx">
+      <DependentUpon>201804011508178_AltAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011509001_Address3.resx">
+      <DependentUpon>201804011509001_Address3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

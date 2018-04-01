@@ -44,9 +44,18 @@ namespace Handin2_2_RDB.Classes
                 db.People.Add(person);
 
                 Console.WriteLine("Enter Address: Streetname, City, number");
-                var street = Console.ReadLine();
 
-                var address = new Address { };
+                Console.WriteLine("Enter Streetname");
+                var street = Console.ReadLine();
+                Console.WriteLine("Enter Cityname");
+                var city = Console.ReadLine();
+                Console.WriteLine("Enter Housenumber");
+                var number = Convert.ToInt32(Console.ReadLine());
+
+                var address = new City {StreetName = street, CityName = city, HouseNumber = number};
+                db.Cities.Add(address);
+                
+
 
                 db.SaveChanges();
 

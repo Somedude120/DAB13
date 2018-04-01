@@ -5,6 +5,7 @@ namespace Handin2_2_RDB.Classes
     public class City
     {
         [Key]
+        public int CityId { get; set; }
         public string StreetName { get; set; }
         public int HouseNumber { get; set; }
         public int ZipCode { get; set; }

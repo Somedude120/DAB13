@@ -8,10 +8,12 @@ namespace Handin2_2_RDB.Classes
         [Key]
         //private string _city;
         //private List<Contacts> _contactlListist;
+        public int AddressId { get; set; }
 
-        public string Street { get; set; }
-        public string Number { get; set; }
         public string City { get; set; }
+
+        public List<City> Streets { get; set; }
         public List<Contacts> ContactList { get; set; }
+        public List<Persons> PersonList { get; set; }
     }
 }
