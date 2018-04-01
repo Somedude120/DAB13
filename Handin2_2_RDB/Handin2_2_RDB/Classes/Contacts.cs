@@ -10,6 +10,7 @@ namespace Handin2_2_RDB.Classes
         //private string _middlename;
         //private string _surname;
         [Key]
+        public int ContactsId { get; set; }
         public string Type { get; set; }
         public List<Persons> PersonList { get; set; }
         public List<Phone> PhoneList { get; set; }

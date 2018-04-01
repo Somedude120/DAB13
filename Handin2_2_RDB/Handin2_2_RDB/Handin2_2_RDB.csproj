@@ -53,9 +53,11 @@
     <Compile Include="Classes\AltAddress.cs" />
     <Compile Include="Classes\City.cs" />
     <Compile Include="Classes\Contacts.cs" />
+    <Compile Include="Classes\Operations.cs" />
     <Compile Include="Classes\Persons.cs" />
     <Compile Include="Classes\Phone.cs" />
     <Compile Include="Context\PersonIndexContext.cs" />
+    <Compile Include="Interface\IOperations.cs" />
     <Compile Include="Migrations\201803231324494_Contacts.cs" />
     <Compile Include="Migrations\201803231324494_Contacts.Designer.cs">
       <DependentUpon>201803231324494_Contacts.cs</DependentUpon>
@@ -120,6 +122,14 @@
     <Compile Include="Migrations\201803311430515_Contacts4.Designer.cs">
       <DependentUpon>201803311430515_Contacts4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804011325338_Persons3.cs" />
+    <Compile Include="Migrations\201804011325338_Persons3.Designer.cs">
+      <DependentUpon>201804011325338_Persons3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804011329261_Contacts5.cs" />
+    <Compile Include="Migrations\201804011329261_Contacts5.Designer.cs">
+      <DependentUpon>201804011329261_Contacts5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803311430515_Contacts4.resx">
       <DependentUpon>201803311430515_Contacts4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011325338_Persons3.resx">
+      <DependentUpon>201804011325338_Persons3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804011329261_Contacts5.resx">
+      <DependentUpon>201804011329261_Contacts5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
