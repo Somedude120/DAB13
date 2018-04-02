@@ -14,8 +14,13 @@ namespace Handin2_2_RDB.Classes
             //Liste til personerne
             var personList = new List<Persons>();
             var contactList = new List<Contacts>();
+            var phoneList = new List<Phone>();
             try
             {
+                //----------------------
+                //Test rum
+
+                //----------------------
                 Console.WriteLine("Enter Address: Streetname, City, number");
 
                 Console.WriteLine("Enter Streetname");
@@ -36,17 +41,12 @@ namespace Handin2_2_RDB.Classes
                 //Lav adressen og tilføj personen til adressen
                 var place = new Address { Placement = address };
 
-                //Tilføj en kontakt som binder det hele sammen
-                var contacts = new Contacts { Address = place, PersonList = personList };
-                db.Contacts.Add(contacts);
-
                 db.SaveChanges();
 
 
                 Console.WriteLine("Enter a name, middlename, surname and email for a new Person: ");
                 Console.WriteLine("Enter First Name");
                 var name = Console.ReadLine();
-
                 Console.WriteLine("Enter Middlename");
                 var middlename = Console.ReadLine();
                 if (middlename == "")
@@ -66,16 +66,38 @@ namespace Handin2_2_RDB.Classes
                 {
                     email = "N/A";
                 }
+
+                //Lav telefon
+                Console.WriteLine("Enter Phonenumber");
+                var phoneinfo = Console.ReadLine();
+                if (phoneinfo == "")
+                {
+                    phoneinfo = "N/A";
+                }
+
+                Console.WriteLine("Enter Phonenumber");
+                var phonenumber = Console.ReadLine();
+                if (phonenumber == "")
+                {
+                    phonenumber = "N/A";
+                }
+
+                var phone = new Phone{Info = phoneinfo,Number = phonenumber};
+                db.Phones.Add(phone);
+
                 Console.WriteLine("Please wait while adding to database.");
-                //Lav personen med addressen
-                var person = new Persons { Name = name, MiddleName = middlename, SurName = surname, Email = email, AddressList = place};
+                //Lav personen med addressen og telefon
+                var person = new Persons { Name = name, MiddleName = middlename, SurName = surname, Email = email, AddressList = place, PhoneList = phoneList};
                 db.People.Add(person);
                 //Tilføj til listen
                 personList.Add(person);
 
                 db.SaveChanges();
 
-                
+                //Tilføj en kontakt som binder det hele sammen
+                var contacts = new Contacts { Address = place, PersonList = personList,PhoneList = phoneList};
+                db.Contacts.Add(contacts);
+                db.SaveChanges();
 
 
             }
@@ -147,6 +169,11 @@ namespace Handin2_2_RDB.Classes
                     Console.WriteLine($"Middlename: {e.MiddleName}");
                     Console.WriteLine($"Surname: {e.SurName}");
                     Console.WriteLine($"Email: {e.Email}");
+
+                    Console.WriteLine($"Phone ID: {e.PhoneList[0].PhoneId}");
+                    Console.WriteLine($"Phone Number: {e.PhoneList[0].Number}");
+                    Console.WriteLine($"Phone Info: {e.PhoneList[0].Info}");
+
                     Console.WriteLine($"City ID: {e.ContactList[0].Address.Placement.CityId}");
                     Console.WriteLine($"City Name: {e.ContactList[0].Address.Placement.CityName}");
                     Console.WriteLine($"City Streetname: {e.ContactList[0].Address.Placement.StreetName}");

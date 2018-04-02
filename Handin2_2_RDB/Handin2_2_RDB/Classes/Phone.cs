@@ -11,6 +11,6 @@ namespace Handin2_2_RDB.Classes
         public string Number { get; set; }
         public string Info { get; set; }
 
-        public List<Persons> PersonList { get; set; }
+        public virtual List<Persons> PersonList { get; set; }
     }
 }
