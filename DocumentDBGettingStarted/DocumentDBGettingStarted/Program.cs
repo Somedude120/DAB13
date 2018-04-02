@@ -93,7 +93,7 @@ namespace DocumentDBGettingStarted
                         OBS.ViewContact();
                         break;
                     case "3":
-                        Console.WriteLine("Update not here");
+                        OBS.UpdateContact();
                         break;
                     case "4":
                         Console.WriteLine("Delete not here");

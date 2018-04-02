@@ -63,7 +63,7 @@ namespace DocumentDBGettingStarted.Tasks
 
             Contacts testcontact = new Contacts()
             {
-                Id = "HANS"+id ,
+                Id = id ,
                 //Person kommer ind her
                 Person = new Persons[]
                 {
@@ -111,9 +111,17 @@ namespace DocumentDBGettingStarted.Tasks
             }
         }
 
-        public void UpdateContact()
+        public async Task UpdateContact()
         {
-
+            var newContact = AddContact();   //Create a new Person
+            try
+            {
+                await ReplaceContactDocument("PersonIndexDB", "Handin2_2", newContact.Id, newContact);   //Replace old person with new one
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Contact did not exist. Nothing has been updated.");   //When trying to update a person that does not exist
+            }
         }
 
         public void DeleteContact()
@@ -147,6 +155,11 @@ namespace DocumentDBGettingStarted.Tasks
                 }
             }
 
+        }
+        private async Task ReplaceContactDocument(string databaseName, string collectionName, string personName, Contacts updatedcontact)
+        {
+            await this._client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, personName), updatedcontact);
+            this.WriteToConsoleAndPromptToContinue("Replaced Contact {0}", personName);
         }
 
     }
