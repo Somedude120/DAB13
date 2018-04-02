@@ -91,9 +91,24 @@ namespace DocumentDBGettingStarted.Tasks
             return testcontact;
         }
 
-        public void ViewContact()
+        public async Task ViewContact()
         {
+            Console.WriteLine("Enter person ID: ");
+            string personID = Console.ReadLine();
 
+            // Wub wub wub
+            FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
+
+            // Finder en kontakt
+            IQueryable<Contacts> contactQuery = _client.CreateDocumentQuery<Contacts>(
+                    UriFactory.CreateDocumentCollectionUri("PersonIndexDB", "Handin2_2"), queryOptions)
+                .Where(p => p.Id == personID);
+
+            // Wanted person is now in PersonQuery
+            foreach (Contacts contact in contactQuery)
+            {
+                Console.WriteLine("\tRead {0}", contact);
+            }
         }
 
         public void UpdateContact()

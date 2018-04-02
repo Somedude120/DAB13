@@ -90,7 +90,7 @@ namespace DocumentDBGettingStarted
                         OBS.Create();
                         break;
                     case "2":
-                        Console.WriteLine("View not here");
+                        OBS.ViewContact();
                         break;
                     case "3":
                         Console.WriteLine("Update not here");
