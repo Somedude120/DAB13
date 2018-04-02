@@ -124,9 +124,19 @@ namespace DocumentDBGettingStarted.Tasks
             }
         }
 
-        public void DeleteContact()
+        public async Task DeleteContact()
         {
+            Console.WriteLine("Enter Contact ID for removal: ");
+            string personId = Console.ReadLine();
 
+            try
+            {
+                await DeleteContactDocument("PersonIndexDB", "Handin2_2", personId);    //Deletes Person (document) with the wanted ID
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Person does not exist. Nothing has been deleted");   //When Person doesn't exist
+            }
         }
 
         //Opgaver som skal håndtere dokument databasen, hardcoded til collection
@@ -161,6 +171,10 @@ namespace DocumentDBGettingStarted.Tasks
             await this._client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, personName), updatedcontact);
             this.WriteToConsoleAndPromptToContinue("Replaced Contact {0}", personName);
         }
-
+        private async Task DeleteContactDocument(string databaseName, string collectionName, string documentName)
+        {
+            await this._client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+            Console.WriteLine("Deleted Contact {0}", documentName);
+        }
     }
 }

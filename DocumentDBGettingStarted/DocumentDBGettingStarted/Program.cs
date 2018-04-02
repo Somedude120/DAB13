@@ -96,7 +96,7 @@ namespace DocumentDBGettingStarted
                         OBS.UpdateContact();
                         break;
                     case "4":
-                        Console.WriteLine("Delete not here");
+                        OBS.DeleteContact();
                         break;
                     case "5":
                         Environment.Exit(0);    //Quit program
