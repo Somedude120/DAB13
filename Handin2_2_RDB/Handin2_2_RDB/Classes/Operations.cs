@@ -113,7 +113,7 @@ namespace Handin2_2_RDB.Classes
         {
             try
             {
-
+                Console.WriteLine("For Prototype Purpose, Only 3 Prompts: 1. Name, 2. City, 3. PhoneInfo.");
                 Console.WriteLine("Enter Id to Update Name:");
                 var id = Convert.ToInt32(Console.ReadLine());
                 foreach (Persons e in db.People)
@@ -130,6 +130,10 @@ namespace Handin2_2_RDB.Classes
                         Console.WriteLine("Enter New City:");
                         var location = Console.ReadLine();
                         e.ContactList[0].Address.Placement.CityName = location;
+
+                        Console.WriteLine("Enter New Phoneinfo:");
+                        var phoneinfo = Console.ReadLine();
+                        e.PhoneList[0].Info = phoneinfo;
 
                         Console.WriteLine($"Update Successfully on id {e.PersonId}");
                         
