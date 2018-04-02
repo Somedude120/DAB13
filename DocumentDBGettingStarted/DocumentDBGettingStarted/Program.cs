@@ -86,11 +86,35 @@ namespace DocumentDBGettingStarted
             //    Address = new Address { State = "WA", County = "King", City = "Seattle" },
             //    IsRegistered = true
             //};
+            
             Contacts testcontact = new Contacts()
             {
+                Id = "HANS5",
+                //Person kommer ind her
+                Person = new Persons[]
+                {
+                    new Persons(){FirstName = "HANS", MiddleName = "HANS", SurName = "HANS", Email = "HANS",
+                        //Telefon er en del af personen
+                        Phone = new Phones[]
+                        {
+                            new Phones { PhoneNumber = "555", PhoneInfo = "HANS"},
+                        }
+                    },
+                },
+                //Kontakt adressen ligger under Kontakt
+                Address = new Addresses[]
+                {
+                    new Addresses {CityName = "HANS", StreetName = "HANS", HouseNumber = "HANS",Zipcode = "HANS"}
+                },
+                AltAddress = new AltAddresses[]
+                {
+                    new AltAddresses{CityName = "HANS",Zipcode = "HANS", StreetName = "HANS"}
+                },
+                IsRegistered = true,
+
             };
-            
-            
+            //OBS.AddContact();
+
             await this.CreateFamilyDocumentIfNotExists("PersonIndexDB", "Handin2_2", testcontact);
             
             //Family wakefieldFamily = new Family
@@ -132,7 +156,7 @@ namespace DocumentDBGettingStarted
             //await this.CreateFamilyDocumentIfNotExists("PersonIndexDB", "Handin2_2", wakefieldFamily);
 
             // ADD THIS PART TO YOUR CODE
-            this.ExecuteSimpleQuery("PersonIndexDB", "Handin2_2");
+            //this.ExecuteSimpleQuery("PersonIndexDB", "Handin2_2");
 
             // ADD THIS PART TO YOUR CODE
             // Update the Grade of the Andersen Family child
@@ -140,7 +164,7 @@ namespace DocumentDBGettingStarted
 
             //await this.ReplaceFamilyDocument("PersonIndexDB", "Handin2_2", "Andersen.1", andersenFamily);
 
-            this.ExecuteSimpleQuery("PersonIndexDB", "Handin2_2");
+            //this.ExecuteSimpleQuery("PersonIndexDB", "Handin2_2");
 
             // Slet dokumentet
             //await this.DeleteFamilyDocument("PersonIndexDB", "Handin2_2", "Andersen.1");
@@ -222,50 +246,50 @@ namespace DocumentDBGettingStarted
 
         }
         // ADD THIS PART TO YOUR CODE
-        private void ExecuteSimpleQuery(string databaseName, string collectionName)
-        {
-            // Set some common query options
-            FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
-
-            // Here we find the Andersen family via its LastName
-            IQueryable<Contacts> familyQuery = this.client.CreateDocumentQuery<Contacts>(
-                    UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
-                .Where(f => f.Person[0].FirstName == "Andersen");
-
-            // The query is executed synchronously here, but can also be executed asynchronously via the IDocumentQuery<T> interface
-            Console.WriteLine("Running LINQ query...");
-            foreach (Contacts contact in familyQuery)
-            {
-                Console.WriteLine("\tRead {0}", contact);
-            }
-
-            // Now execute the same query via direct SQL
-            IQueryable<Contacts> familyQueryInSql = this.client.CreateDocumentQuery<Contacts>(
-                UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                "SELECT * FROM Family WHERE Family.LastName = 'Hansi'",
-                queryOptions);
-
-            Console.WriteLine("Running direct SQL query...");
-            foreach (Contacts contact in familyQueryInSql)
-            {
-                Console.WriteLine("\tRead {0}", contact);
-            }
-
-            Console.WriteLine("Press any key to continue ...");
-            Console.ReadKey();
-        }
-        // ADD THIS PART TO YOUR CODE
-        private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string personName, Contacts updatedcontact)
-        {
-            await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, personName), updatedcontact);
-            this.WriteToConsoleAndPromptToContinue("Replaced Contact {0}", personName);
-        }
-        //// ADD THIS PART TO YOUR CODE
-        //private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
+        //private void ExecuteSimpleQuery(string databaseName, string collectionName)
         //{
-        //    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-        //    Console.WriteLine("Deleted Family {0}", documentName);
+        //    // Set some common query options
+        //    FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
+
+        //    // Here we find the Andersen family via its LastName
+        //    IQueryable<Contacts> familyQuery = this.client.CreateDocumentQuery<Contacts>(
+        //            UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
+        //        .Where(f => f.Person[0].FirstName == "Andersen");
+
+        //    // The query is executed synchronously here, but can also be executed asynchronously via the IDocumentQuery<T> interface
+        //    Console.WriteLine("Running LINQ query...");
+        //    foreach (Contacts contact in familyQuery)
+        //    {
+        //        Console.WriteLine("\tRead {0}", contact);
+        //    }
+
+        //    // Now execute the same query via direct SQL
+        //    IQueryable<Contacts> familyQueryInSql = this.client.CreateDocumentQuery<Contacts>(
+        //        UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+        //        "SELECT * FROM Family WHERE Family.LastName = 'Hansi'",
+        //        queryOptions);
+
+        //    Console.WriteLine("Running direct SQL query...");
+        //    foreach (Contacts contact in familyQueryInSql)
+        //    {
+        //        Console.WriteLine("\tRead {0}", contact);
+        //    }
+
+        //    Console.WriteLine("Press any key to continue ...");
+        //    Console.ReadKey();
         //}
+        //// ADD THIS PART TO YOUR CODE
+        //private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string personName, Contacts updatedcontact)
+        //{
+        //    await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, personName), updatedcontact);
+        //    this.WriteToConsoleAndPromptToContinue("Replaced Contact {0}", personName);
+        //}
+        ////// ADD THIS PART TO YOUR CODE
+        ////private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
+        ////{
+        ////    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+        ////    Console.WriteLine("Deleted Family {0}", documentName);
+        ////}
 
     }
 }
