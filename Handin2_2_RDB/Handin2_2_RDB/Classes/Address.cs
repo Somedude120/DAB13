@@ -1,21 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Handin2_2_RDB.Classes
 {
     public class Address
     {
-        [Key]
+        [ForeignKey("Placement")]
+        public int AddressId { get; set; }
+        //[Key]
         //private string _city;
         //private List<Contacts> _contactlListist;
-        public int AddressId { get; set; }
+
 
         //public string City { get; set; }
 
-        //Lav en en til en key
+        //Lav en en til en key, City skal laves før addressen kan findes
         public virtual City Placement { get; set; }
         //public List<Contacts> ContactList { get; set; }
         //Der kan komme mange til addressen, men personen kan kun have 1 adresse
-        //public List<Persons> PersonList { get; set; }
+        public List<Persons> PersonList { get; set; }
     }
 }

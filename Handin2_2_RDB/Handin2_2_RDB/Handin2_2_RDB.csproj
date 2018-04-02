@@ -74,6 +74,42 @@
     <Compile Include="Migrations\201804012106252_Addresses.Designer.cs">
       <DependentUpon>201804012106252_Addresses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804020659233_Address2.cs" />
+    <Compile Include="Migrations\201804020659233_Address2.Designer.cs">
+      <DependentUpon>201804020659233_Address2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020706207_Cities.cs" />
+    <Compile Include="Migrations\201804020706207_Cities.Designer.cs">
+      <DependentUpon>201804020706207_Cities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020711098_Address3.cs" />
+    <Compile Include="Migrations\201804020711098_Address3.Designer.cs">
+      <DependentUpon>201804020711098_Address3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020713495_Address4.cs" />
+    <Compile Include="Migrations\201804020713495_Address4.Designer.cs">
+      <DependentUpon>201804020713495_Address4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020714575_Address5.cs" />
+    <Compile Include="Migrations\201804020714575_Address5.Designer.cs">
+      <DependentUpon>201804020714575_Address5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020716535_Addresses1.cs" />
+    <Compile Include="Migrations\201804020716535_Addresses1.Designer.cs">
+      <DependentUpon>201804020716535_Addresses1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020717024_Addresses2.cs" />
+    <Compile Include="Migrations\201804020717024_Addresses2.Designer.cs">
+      <DependentUpon>201804020717024_Addresses2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020718015_Addresses3.cs" />
+    <Compile Include="Migrations\201804020718015_Addresses3.Designer.cs">
+      <DependentUpon>201804020718015_Addresses3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804020726177_Addresses4.cs" />
+    <Compile Include="Migrations\201804020726177_Addresses4.Designer.cs">
+      <DependentUpon>201804020726177_Addresses4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,6 +130,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804012106252_Addresses.resx">
       <DependentUpon>201804012106252_Addresses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020659233_Address2.resx">
+      <DependentUpon>201804020659233_Address2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020706207_Cities.resx">
+      <DependentUpon>201804020706207_Cities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020711098_Address3.resx">
+      <DependentUpon>201804020711098_Address3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020713495_Address4.resx">
+      <DependentUpon>201804020713495_Address4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020714575_Address5.resx">
+      <DependentUpon>201804020714575_Address5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020716535_Addresses1.resx">
+      <DependentUpon>201804020716535_Addresses1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020717024_Addresses2.resx">
+      <DependentUpon>201804020717024_Addresses2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020718015_Addresses3.resx">
+      <DependentUpon>201804020718015_Addresses3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804020726177_Addresses4.resx">
+      <DependentUpon>201804020726177_Addresses4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
