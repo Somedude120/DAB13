@@ -12,32 +12,37 @@ using Newtonsoft.Json;
 
 namespace DocumentDBGettingStarted
 {
-    class Program
+    public class Program
     {
+        Contacts testcontact;
         // ADD THIS PART TO YOUR CODE
         private const string EndpointUrl = "https://localhost:8081";
-        private const string PrimaryKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+        private const string PrimaryKey =
+            "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
         private DocumentClient client;
         private Operations OBS;
+        static public Program p;
 
-        
         static void Main(string[] args)
         {
             //// Connect to the Azure Cosmos DB Emulator running locally
             //DocumentClient client = new DocumentClient(
             //    new Uri("https://localhost:8081"),
             //    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
-            
+
             // ADD THIS PART TO YOUR CODE
             try
             {
-                Program p = new Program();
+                p = new Program();
                 p.GetStartedDemo().Wait();
             }
             catch (DocumentClientException de)
             {
                 Exception baseException = de.GetBaseException();
-                Console.WriteLine("{0} error occurred: {1}, Message: {2}", de.StatusCode, de.Message, baseException.Message);
+                Console.WriteLine("{0} error occurred: {1}, Message: {2}", de.StatusCode, de.Message,
+                    baseException.Message);
             }
             catch (Exception e)
             {
@@ -50,17 +55,62 @@ namespace DocumentDBGettingStarted
                 Console.ReadKey();
             }
         }
+
         // ADD THIS PART TO YOUR CODE
         private async Task GetStartedDemo()
         {
             this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
+            await this.client.CreateDatabaseIfNotExistsAsync(new Database {Id = "PersonIndexDB"});
+            await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("PersonIndexDB"),
+                new DocumentCollection {Id = "Handin2_2"});
+            //OBS.Create();
+            CRUDMenu();
 
-            await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "PersonIndexDB" });
+            
+            //AddContact(testcontact);
+            
+            //await this.CreateContactDocumentIfNotExists("PersonIndexDB", "Handin2_2", AddContact(testcontact));
 
-            await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("PersonIndexDB"), new DocumentCollection { Id = "Handin2_2" });
+        }
 
+        private void CRUDMenu()
+        {
+            OBS = new Operations(client, p);
+            while (true)
+            {
+                Console.WriteLine("1. Add Contact");
+                Console.WriteLine("2. View Contact");
+                Console.WriteLine("3. Update Contact");
+                Console.WriteLine("4. Delete Contact");
+                Console.WriteLine("5. Exit");
+                var selection = Console.ReadLine();
+                switch (selection)
+                {
+                    case "1":
+                        OBS.Create();
+                        break;
+                    case "2":
+                        Console.WriteLine("View not here");
+                        break;
+                    case "3":
+                        Console.WriteLine("Update not here");
+                        break;
+                    case "4":
+                        Console.WriteLine("Delete not here");
+                        break;
+                    case "5":
+                        Environment.Exit(0);    //Quit program
+                        break;
+                    default:
+                        Console.WriteLine("Only acceptable inputs are: '1' '2' '3' '4'");
+                        break;
+                }
+            }
+        }
+    }
+}
 
-            // ADD THIS PART TO YOUR CODE
+// ADD THIS PART TO YOUR CODE
             //Family andersenFamily = new Family
             //{
             //    Id = "Andersen.1",
@@ -87,35 +137,35 @@ namespace DocumentDBGettingStarted
             //    IsRegistered = true
             //};
             
-            Contacts testcontact = new Contacts()
-            {
-                Id = "HANS5",
-                //Person kommer ind her
-                Person = new Persons[]
-                {
-                    new Persons(){FirstName = "HANS", MiddleName = "HANS", SurName = "HANS", Email = "HANS",
-                        //Telefon er en del af personen
-                        Phone = new Phones[]
-                        {
-                            new Phones { PhoneNumber = "555", PhoneInfo = "HANS"},
-                        }
-                    },
-                },
-                //Kontakt adressen ligger under Kontakt
-                Address = new Addresses[]
-                {
-                    new Addresses {CityName = "HANS", StreetName = "HANS", HouseNumber = "HANS",Zipcode = "HANS"}
-                },
-                AltAddress = new AltAddresses[]
-                {
-                    new AltAddresses{CityName = "HANS",Zipcode = "HANS", StreetName = "HANS"}
-                },
-                IsRegistered = true,
+            //Contacts testcontact = new Contacts()
+            //{
+            //    Id = "HANS5",
+            //    //Person kommer ind her
+            //    Person = new Persons[]
+            //    {
+            //        new Persons(){FirstName = "HANS", MiddleName = "HANS", SurName = "HANS", Email = "HANS",
+            //            //Telefon er en del af personen
+            //            Phone = new Phones[]
+            //            {
+            //                new Phones { PhoneNumber = "555", PhoneInfo = "HANS"},
+            //            }
+            //        },
+            //    },
+            //    //Kontakt adressen ligger under Kontakt
+            //    Address = new Addresses[]
+            //    {
+            //        new Addresses {CityName = "HANS", StreetName = "HANS", HouseNumber = "HANS",Zipcode = "HANS"}
+            //    },
+            //    AltAddress = new AltAddresses[]
+            //    {
+            //        new AltAddresses{CityName = "HANS",Zipcode = "HANS", StreetName = "HANS"}
+            //    },
+            //    IsRegistered = true,
 
-            };
+            //};
             //OBS.AddContact();
 
-            await this.CreateFamilyDocumentIfNotExists("PersonIndexDB", "Handin2_2", testcontact);
+            //await this.CreateFamilyDocumentIfNotExists("PersonIndexDB", "Handin2_2", testcontact);
             
             //Family wakefieldFamily = new Family
             //{
@@ -173,14 +223,14 @@ namespace DocumentDBGettingStarted
             // Clean up/delete the database
             //await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("PersonIndexDB"));
 
-        }
+        
         // ADD THIS PART TO YOUR CODE
-        private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
-        {
-            Console.WriteLine(format, args);
-            Console.WriteLine("Press any key to continue ...");
-            Console.ReadKey();
-        }
+        //private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
+        //{
+        //    Console.WriteLine(format, args);
+        //    Console.WriteLine("Press any key to continue ...");
+        //    Console.ReadKey();
+        //}
         // 
         //public class Family
         //{
@@ -197,54 +247,54 @@ namespace DocumentDBGettingStarted
         //    }
         //}
 
-        public class Parent
-        {
-            public string FamilyName { get; set; }
-            public string FirstName { get; set; }
-        }
-
-        //public class Child
+        //public class Parent
         //{
         //    public string FamilyName { get; set; }
         //    public string FirstName { get; set; }
-        //    public string Gender { get; set; }
-        //    public int Grade { get; set; }
-        //    public Phones[] Phones { get; set; }
         //}
 
-        //public class Phone
+        ////public class Child
+        ////{
+        ////    public string FamilyName { get; set; }
+        ////    public string FirstName { get; set; }
+        ////    public string Gender { get; set; }
+        ////    public int Grade { get; set; }
+        ////    public Phones[] Phones { get; set; }
+        ////}
+
+        ////public class Phone
+        ////{
+        ////    public string GivenName { get; set; }
+        ////}
+
+        //public class Address
         //{
-        //    public string GivenName { get; set; }
+        //    public string State { get; set; }
+        //    public string County { get; set; }
+        //    public string City { get; set; }
         //}
+        //// ADD THIS PART TO YOUR CODE
+        //private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Contacts contact)
+        //{
+        //    try
+        //    {
+        //        await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, contact.Id));
+        //        this.WriteToConsoleAndPromptToContinue("Found {0}", contact.Id);
+        //    }
+        //    catch (DocumentClientException de)
+        //    {
+        //        if (de.StatusCode == HttpStatusCode.NotFound)
+        //        {
+        //            await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), contact);
+        //            this.WriteToConsoleAndPromptToContinue("Created Contact {0}", contact.Id);
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-        public class Address
-        {
-            public string State { get; set; }
-            public string County { get; set; }
-            public string City { get; set; }
-        }
-        // ADD THIS PART TO YOUR CODE
-        private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Contacts contact)
-        {
-            try
-            {
-                await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, contact.Id));
-                this.WriteToConsoleAndPromptToContinue("Found {0}", contact.Id);
-            }
-            catch (DocumentClientException de)
-            {
-                if (de.StatusCode == HttpStatusCode.NotFound)
-                {
-                    await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), contact);
-                    this.WriteToConsoleAndPromptToContinue("Created Contact {0}", contact.Id);
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-        }
+        //}
         // ADD THIS PART TO YOUR CODE
         //private void ExecuteSimpleQuery(string databaseName, string collectionName)
         //{
@@ -291,5 +341,3 @@ namespace DocumentDBGettingStarted
         ////    Console.WriteLine("Deleted Family {0}", documentName);
         ////}
 
-    }
-}
