@@ -33,7 +33,7 @@ namespace Handin2_2_RDB.Classes
                 db.SaveChanges();
 
                 Console.WriteLine("Testline");
-                ////Lav adressen og tilføj personen til adressen
+                //Lav adressen og tilføj personen til adressen
                 var place = new Address { Placement = address };
 
                 //Tilføj en kontakt som binder det hele sammen
@@ -67,8 +67,7 @@ namespace Handin2_2_RDB.Classes
                     email = "N/A";
                 }
                 Console.WriteLine("Please wait while adding to database.");
-                //Lav personen
-                //Add et nyt navn til DB
+                //Lav personen med addressen
                 var person = new Persons { Name = name, MiddleName = middlename, SurName = surname, Email = email, AddressList = place};
                 db.People.Add(person);
                 //Tilføj til listen
@@ -103,15 +102,21 @@ namespace Handin2_2_RDB.Classes
                     {
                         Console.WriteLine("Enter New Name:");
                         var name = Console.ReadLine();
-                        var person = db.People.First<Persons>();
-                        person.Name = name;
+                        e.Name = name;
+                        
+
+                        Console.WriteLine("Enter New City:");
+                        var location = Console.ReadLine();
+                        e.ContactList[0].Address.Placement.CityName = location;
+
                         Console.WriteLine($"Update Successfully on id {e.PersonId}");
-                        db.SaveChanges();
+                        
                         break;
 
                     }
-
+                    
                 }
+                db.SaveChanges();
 
             }
 
@@ -142,7 +147,11 @@ namespace Handin2_2_RDB.Classes
                     Console.WriteLine($"Middlename: {e.MiddleName}");
                     Console.WriteLine($"Surname: {e.SurName}");
                     Console.WriteLine($"Email: {e.Email}");
-                    Console.WriteLine($"City: {e.ContactList[0].Address.Placement.CityName}");
+                    Console.WriteLine($"City ID: {e.ContactList[0].Address.Placement.CityId}");
+                    Console.WriteLine($"City Name: {e.ContactList[0].Address.Placement.CityName}");
+                    Console.WriteLine($"City Streetname: {e.ContactList[0].Address.Placement.StreetName}");
+                    Console.WriteLine($"City Housenumber: {e.ContactList[0].Address.Placement.HouseNumber}");
+                    Console.WriteLine($"City Zipcode: {e.ContactList[0].Address.Placement.ZipCode}");
 
                 }
 
@@ -162,8 +171,7 @@ namespace Handin2_2_RDB.Classes
             Console.WriteLine("Enter Id to delete:");
  
             var id = Convert.ToInt32(Console.ReadLine());
-            var person = new Persons { PersonId = id};
-
+            var person = new Persons { PersonId = id};            
             db.People.Attach(person);
             db.People.Remove(person);
                     db.SaveChanges();

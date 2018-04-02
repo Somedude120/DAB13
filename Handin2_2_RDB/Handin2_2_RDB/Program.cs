@@ -34,10 +34,10 @@ namespace Handin2_2_RDB.Main
                         
                         //Tilføjet CRUD
                         Console.WriteLine("\nCRUD OPERATIONS\n--------------");
-                        Console.WriteLine("1.Add new Person");
-                        Console.WriteLine("2.View Person");
-                        Console.WriteLine("3.Update Person Detail");
-                        Console.WriteLine("4.Delete Person");
+                        Console.WriteLine("1.Add new Contact");
+                        Console.WriteLine("2.View Contacts");
+                        Console.WriteLine("3.Update Contact Detail");
+                        Console.WriteLine("4.Delete Contact");
                         Console.WriteLine("5.Exit \n");
 
                         choice = Convert.ToInt32(Console.ReadLine());
