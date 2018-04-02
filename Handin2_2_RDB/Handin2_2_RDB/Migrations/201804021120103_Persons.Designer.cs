@@ -7,13 +7,13 @@ namespace Handin2_2_RDB.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Addresses4 : IMigrationMetadata
+    public sealed partial class Persons : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Addresses4));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Persons));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804020726177_Addresses4"; }
+            get { return "201804021120103_Persons"; }
         }
         
         string IMigrationMetadata.Source

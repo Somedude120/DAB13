@@ -11,9 +11,37 @@ namespace Handin2_2_RDB.Classes
     {
         public void AddContact(PersonIndexContext db)
         {
-            
-            try   
+            //Liste til personerne
+            var personList = new List<Persons>();
+            var contactList = new List<Contacts>();
+            try
             {
+                Console.WriteLine("Enter Address: Streetname, City, number");
+
+                Console.WriteLine("Enter Streetname");
+                var street = Console.ReadLine();
+                Console.WriteLine("Enter Cityname");
+                var city = Console.ReadLine();
+                Console.WriteLine("Enter Housenumber");
+                var number = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Zipcode");
+                var zip = Convert.ToInt32(Console.ReadLine());
+                //Lav byen
+                var address = new City { StreetName = street, CityName = city, HouseNumber = number, ZipCode = zip };
+                db.Cities.Add(address);
+
+                db.SaveChanges();
+
+                Console.WriteLine("Testline");
+                ////Lav adressen og tilføj personen til adressen
+                var place = new Address { Placement = address };
+
+                //Tilføj en kontakt som binder det hele sammen
+                var contacts = new Contacts { Address = place, PersonList = personList };
+                db.Contacts.Add(contacts);
+
+                db.SaveChanges();
+
 
                 Console.WriteLine("Enter a name, middlename, surname and email for a new Person: ");
                 Console.WriteLine("Enter First Name");
@@ -39,28 +67,17 @@ namespace Handin2_2_RDB.Classes
                     email = "N/A";
                 }
                 Console.WriteLine("Please wait while adding to database.");
+                //Lav personen
                 //Add et nyt navn til DB
-                var person = new Persons { Name = name, MiddleName = middlename, SurName = surname, Email = email};
+                var person = new Persons { Name = name, MiddleName = middlename, SurName = surname, Email = email, AddressList = place};
                 db.People.Add(person);
+                //Tilføj til listen
+                personList.Add(person);
 
-                Console.WriteLine("Enter Address: Streetname, City, number");
-
-                Console.WriteLine("Enter Streetname");
-                var street = Console.ReadLine();
-                Console.WriteLine("Enter Cityname");
-                var city = Console.ReadLine();
-                Console.WriteLine("Enter Housenumber");
-                var number = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Zipcode");
-                var zip = Convert.ToInt32(Console.ReadLine());
-
-                var address = new City {StreetName = street, CityName = city, HouseNumber = number, ZipCode = zip};
-                db.Cities.Add(address);
+                db.SaveChanges();
 
                 
 
-
-                db.SaveChanges();
 
             }
 
@@ -75,10 +92,10 @@ namespace Handin2_2_RDB.Classes
         {
             try
             {
+
                 Console.WriteLine("Enter Id to Update Name:");
                 var id = Convert.ToInt32(Console.ReadLine());
                 foreach (Persons e in db.People)
-
                 {
 
                     if (e.PersonId == id)
@@ -113,14 +130,19 @@ namespace Handin2_2_RDB.Classes
 
             {
 
+
+
                 foreach (Persons e in db.People)
 
                 {
+
+                    Console.WriteLine($"-----------------------------");
                     Console.WriteLine($"ID: {e.PersonId}");
                     Console.WriteLine($"Firstname: {e.Name}");
                     Console.WriteLine($"Middlename: {e.MiddleName}");
                     Console.WriteLine($"Surname: {e.SurName}");
                     Console.WriteLine($"Email: {e.Email}");
+                    Console.WriteLine($"City: {e.ContactList[0].Address.Placement.CityName}");
 
                 }
 
