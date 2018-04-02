@@ -68,7 +68,7 @@ namespace Handin2_2_RDB.Classes
                 }
 
                 //Lav telefon
-                Console.WriteLine("Enter Phonenumber");
+                Console.WriteLine("Enter Phoneinfo");
                 var phoneinfo = Console.ReadLine();
                 if (phoneinfo == "")
                 {
@@ -91,6 +91,7 @@ namespace Handin2_2_RDB.Classes
                 db.People.Add(person);
                 //Tilføj til listen
                 personList.Add(person);
+                phoneList.Add(phone);
 
                 db.SaveChanges();
 
