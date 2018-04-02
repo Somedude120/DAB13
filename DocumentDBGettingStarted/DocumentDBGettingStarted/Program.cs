@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 
 // ADD THIS PART TO YOUR CODE
 using System.Net;
+using DocumentDBGettingStarted.Classes;
+using DocumentDBGettingStarted.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
@@ -16,6 +18,7 @@ namespace DocumentDBGettingStarted
         private const string EndpointUrl = "https://localhost:8081";
         private const string PrimaryKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
         private DocumentClient client;
+        private Operations OBS;
 
         
         static void Main(string[] args)
@@ -24,6 +27,7 @@ namespace DocumentDBGettingStarted
             //DocumentClient client = new DocumentClient(
             //    new Uri("https://localhost:8081"),
             //    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+            
             // ADD THIS PART TO YOUR CODE
             try
             {
@@ -51,94 +55,99 @@ namespace DocumentDBGettingStarted
         {
             this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
-            await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
+            await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "PersonIndexDB" });
 
-            await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
+            await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("PersonIndexDB"), new DocumentCollection { Id = "Handin2_2" });
 
-
-            // ADD THIS PART TO YOUR CODE
-            Family andersenFamily = new Family
-            {
-                Id = "Andersen.1",
-                LastName = "Andersen",
-                Parents = new Parent[]
-                    {
-                new Parent { FirstName = "Thomas" },
-                new Parent { FirstName = "Mary Kay" }
-                    },
-                Children = new Child[]
-                    {
-                new Child
-                {
-                        FirstName = "Henriette Thaulow",
-                        Gender = "female",
-                        Grade = 5,
-                        Pets = new Pet[]
-                        {
-                                new Pet { GivenName = "Fluffy" }
-                        }
-                }
-                    },
-                Address = new Address { State = "WA", County = "King", City = "Seattle" },
-                IsRegistered = true
-            };
-
-            await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
-
-            Family wakefieldFamily = new Family
-            {
-                Id = "Wakefield.7",
-                LastName = "Wakefield",
-                Parents = new Parent[]
-                    {
-                new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
-                new Parent { FamilyName = "Miller", FirstName = "Ben" }
-                    },
-                Children = new Child[]
-                    {
-                new Child
-                {
-                        FamilyName = "Merriam",
-                        FirstName = "Jesse",
-                        Gender = "female",
-                        Grade = 8,
-                        Pets = new Pet[]
-                        {
-                                new Pet { GivenName = "Goofy" },
-                                new Pet { GivenName = "Shadow" }
-                        }
-                },
-                new Child
-                {
-                        FamilyName = "Miller",
-                        FirstName = "Lisa",
-                        Gender = "female",
-                        Grade = 1
-                }
-                    },
-                Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-                IsRegistered = false
-            };
-
-            await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
             // ADD THIS PART TO YOUR CODE
-            this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+            //Family andersenFamily = new Family
+            //{
+            //    Id = "Andersen.1",
+            //    LastName = "Andersen",
+            //    Parents = new Parent[]
+            //        {
+            //    new Parent { FirstName = "Thomas" },
+            //    new Parent { FirstName = "Mary Kay" }
+            //        },
+            //    Children = new Child[]
+            //        {
+            //    new Persons
+            //    {
+            //            FirstName = "Henriette Thaulow",
+            //            MiddleName = "female",
+            //            SurName = 5,
+            //            Phones = new Phones[]
+            //            {
+            //                    new Phones { PhoneInfo = "Fluffy", PhoneNumber = "55-55-55"}
+            //            }
+            //    }
+            //        },
+            //    Address = new Address { State = "WA", County = "King", City = "Seattle" },
+            //    IsRegistered = true
+            //};
+            Contacts testcontact = new Contacts()
+            {
+            };
+            
+            
+            await this.CreateFamilyDocumentIfNotExists("PersonIndexDB", "Handin2_2", testcontact);
+            
+            //Family wakefieldFamily = new Family
+            //{
+            //    Id = "Wakefield.7",
+            //    LastName = "Wakefield",
+            //    Parents = new Parent[]
+            //        {
+            //    new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
+            //    new Parent { FamilyName = "Miller", FirstName = "Ben" }
+            //        },
+            //    Children = new Child[]
+            //        {
+            //    new Child
+            //    {
+            //            FamilyName = "Merriam",
+            //            FirstName = "Jesse",
+            //            Gender = "female",
+            //            Grade = 8,
+            //            Phones = new Phones[]
+            //            {
+            //                    new Phones { PhoneInfo = "Goofy" },
+            //                    new Phones { PhoneInfo = "Shadow" }
+            //            }
+            //    },
+            //    new Child
+            //    {
+            //            FamilyName = "Miller",
+            //            FirstName = "Lisa",
+            //            Gender = "female",
+            //            Grade = 1
+            //    }
+            //        },
+            //    Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+            //    IsRegistered = false
+            //};
+            
+
+            //await this.CreateFamilyDocumentIfNotExists("PersonIndexDB", "Handin2_2", wakefieldFamily);
+
+            // ADD THIS PART TO YOUR CODE
+            this.ExecuteSimpleQuery("PersonIndexDB", "Handin2_2");
 
             // ADD THIS PART TO YOUR CODE
             // Update the Grade of the Andersen Family child
-            andersenFamily.Children[0].Grade = 6;
+            //andersenFamily.Children[0].Grade = 6;
 
-            await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+            //await this.ReplaceFamilyDocument("PersonIndexDB", "Handin2_2", "Andersen.1", andersenFamily);
 
-            this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+            this.ExecuteSimpleQuery("PersonIndexDB", "Handin2_2");
 
-            // ADD THIS PART TO CODE
-            await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+            // Slet dokumentet
+            //await this.DeleteFamilyDocument("PersonIndexDB", "Handin2_2", "Andersen.1");
 
             // ADD THIS PART TO CODE
             // Clean up/delete the database
-            await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
+            //await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("PersonIndexDB"));
 
         }
         // ADD THIS PART TO YOUR CODE
@@ -148,21 +157,21 @@ namespace DocumentDBGettingStarted
             Console.WriteLine("Press any key to continue ...");
             Console.ReadKey();
         }
-        // ADD THIS PART TO YOUR CODE
-        public class Family
-        {
-            [JsonProperty(PropertyName = "id")]
-            public string Id { get; set; }
-            public string LastName { get; set; }
-            public Parent[] Parents { get; set; }
-            public Child[] Children { get; set; }
-            public Address Address { get; set; }
-            public bool IsRegistered { get; set; }
-            public override string ToString()
-            {
-                return JsonConvert.SerializeObject(this);
-            }
-        }
+        // 
+        //public class Family
+        //{
+        //    [JsonProperty(PropertyName = "id")]
+        //    public string Id { get; set; }
+        //    public string LastName { get; set; }
+        //    public Parent[] Parents { get; set; }
+        //    public Child[] Children { get; set; }
+        //    public Address Address { get; set; }
+        //    public bool IsRegistered { get; set; }
+        //    public override string ToString()
+        //    {
+        //        return JsonConvert.SerializeObject(this);
+        //    }
+        //}
 
         public class Parent
         {
@@ -170,19 +179,19 @@ namespace DocumentDBGettingStarted
             public string FirstName { get; set; }
         }
 
-        public class Child
-        {
-            public string FamilyName { get; set; }
-            public string FirstName { get; set; }
-            public string Gender { get; set; }
-            public int Grade { get; set; }
-            public Pet[] Pets { get; set; }
-        }
+        //public class Child
+        //{
+        //    public string FamilyName { get; set; }
+        //    public string FirstName { get; set; }
+        //    public string Gender { get; set; }
+        //    public int Grade { get; set; }
+        //    public Phones[] Phones { get; set; }
+        //}
 
-        public class Pet
-        {
-            public string GivenName { get; set; }
-        }
+        //public class Phone
+        //{
+        //    public string GivenName { get; set; }
+        //}
 
         public class Address
         {
@@ -191,19 +200,19 @@ namespace DocumentDBGettingStarted
             public string City { get; set; }
         }
         // ADD THIS PART TO YOUR CODE
-        private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
+        private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Contacts contact)
         {
             try
             {
-                await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
-                this.WriteToConsoleAndPromptToContinue("Found {0}", family.Id);
+                await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, contact.Id));
+                this.WriteToConsoleAndPromptToContinue("Found {0}", contact.Id);
             }
             catch (DocumentClientException de)
             {
                 if (de.StatusCode == HttpStatusCode.NotFound)
                 {
-                    await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), family);
-                    this.WriteToConsoleAndPromptToContinue("Created Family {0}", family.Id);
+                    await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), contact);
+                    this.WriteToConsoleAndPromptToContinue("Created Contact {0}", contact.Id);
                 }
                 else
                 {
@@ -219,44 +228,44 @@ namespace DocumentDBGettingStarted
             FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
             // Here we find the Andersen family via its LastName
-            IQueryable<Family> familyQuery = this.client.CreateDocumentQuery<Family>(
+            IQueryable<Contacts> familyQuery = this.client.CreateDocumentQuery<Contacts>(
                     UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
-                .Where(f => f.LastName == "Andersen");
+                .Where(f => f.Person[0].FirstName == "Andersen");
 
             // The query is executed synchronously here, but can also be executed asynchronously via the IDocumentQuery<T> interface
             Console.WriteLine("Running LINQ query...");
-            foreach (Family family in familyQuery)
+            foreach (Contacts contact in familyQuery)
             {
-                Console.WriteLine("\tRead {0}", family);
+                Console.WriteLine("\tRead {0}", contact);
             }
 
             // Now execute the same query via direct SQL
-            IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
+            IQueryable<Contacts> familyQueryInSql = this.client.CreateDocumentQuery<Contacts>(
                 UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
+                "SELECT * FROM Family WHERE Family.LastName = 'Hansi'",
                 queryOptions);
 
             Console.WriteLine("Running direct SQL query...");
-            foreach (Family family in familyQueryInSql)
+            foreach (Contacts contact in familyQueryInSql)
             {
-                Console.WriteLine("\tRead {0}", family);
+                Console.WriteLine("\tRead {0}", contact);
             }
 
             Console.WriteLine("Press any key to continue ...");
             Console.ReadKey();
         }
         // ADD THIS PART TO YOUR CODE
-        private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
+        private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string personName, Contacts updatedcontact)
         {
-            await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-            this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
+            await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, personName), updatedcontact);
+            this.WriteToConsoleAndPromptToContinue("Replaced Contact {0}", personName);
         }
-        // ADD THIS PART TO YOUR CODE
-        private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
-        {
-            await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-            Console.WriteLine("Deleted Family {0}", documentName);
-        }
+        //// ADD THIS PART TO YOUR CODE
+        //private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
+        //{
+        //    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+        //    Console.WriteLine("Deleted Family {0}", documentName);
+        //}
 
     }
 }
