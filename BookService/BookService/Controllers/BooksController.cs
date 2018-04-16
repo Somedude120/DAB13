@@ -17,6 +17,24 @@ namespace BookService.Controllers
     {
         private BookServiceContext db = new BookServiceContext();
 
+
+        ////Lazy Loading
+        //public class Book
+        //{
+        //    // (Other properties)
+
+        //    // Virtual navigation property
+        //    public virtual Author Author { get; set; }
+        //}
+
+        ////Eager Loading
+        //public IQueryable<Book> GetBooks()
+        //{
+        //    return db.Books
+        //        // new code:
+        //        .Include(b => b.Author);
+        //}
+
         // GET: api/Books
         public IQueryable<Book> GetBooks()
         {
