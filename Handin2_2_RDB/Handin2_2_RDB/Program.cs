@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Handin2_2_RDB.Classes;
 using Handin2_2_RDB.Context;
-
+using System.Configuration;
 /*
  * Welcome to the PersonIndex of Group 13
  * By Daniel and Lisbeth

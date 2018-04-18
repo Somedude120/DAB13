@@ -6,11 +6,16 @@ namespace Handin2_2_RDB.Context
 {
     public class PersonIndexContext : DbContext
     {
-        //Denne her linje viser output i vores consol
-        public PersonIndexContext()
+        //Denne konstruktør skulle åbenbart gøre noget ved DABELAP tingest
+        public PersonIndexContext() : base("name=HandIn2-2")
         {
-            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+
         }
+        ////Denne her linje viser output i vores consol
+        //public PersonIndexContext()
+        //{
+        //    this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
+        //}
 
         public  DbSet<Contacts> Contacts { get; set; }
         public DbSet<Persons> People { get; set; }
