@@ -1,23 +1,23 @@
-﻿//Bliver ikke brugt
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-
 using System.Net;
+using System.Threading.Tasks;
 using DocumentDBGettingStarted.Classes;
+using DocumentDBGettingStarted.Interfaces;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
-using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace DocumentDBGettingStarted.Tasks
 {
-    public class Operations
+    public class Repository<T>
+
     {
+
         public Program Program;
         private readonly DocumentClient _client;
 
-        public Operations(DocumentClient client, Program program)
+        public Repository(DocumentClient client, Program program)
         {
             Program = program;
             _client = client;
@@ -64,7 +64,7 @@ namespace DocumentDBGettingStarted.Tasks
 
             Contacts testcontact = new Contacts()
             {
-                Id = id ,
+                Id = id,
                 //Person kommer ind her
                 Person = new Persons[]
                 {

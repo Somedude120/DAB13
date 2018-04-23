@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 using System.Net;
 using DocumentDBGettingStarted.Classes;
+using DocumentDBGettingStarted.Interfaces;
 using DocumentDBGettingStarted.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
@@ -62,13 +63,9 @@ namespace DocumentDBGettingStarted
             await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("PersonIndexDB"),
                 new DocumentCollection {Id = "Handin2_2"});
 
-            CRUDMenu();
+            //Repo og unitofworks
+            Repository<Operations> OPS = new Repository<Operations>(client, p);
 
-        }
-
-        private void CRUDMenu()
-        {
-            OBS = new Operations(client, p);
             while (true)
             {
                 Console.WriteLine("1. Add Contact");
@@ -80,25 +77,65 @@ namespace DocumentDBGettingStarted
                 switch (selection)
                 {
                     case "1":
-                        OBS.Create();
+                        await OPS.Create();
                         break;
                     case "2":
-                        OBS.ViewContact();
+                        await OPS.ViewContact();
                         break;
                     case "3":
-                        OBS.UpdateContact();
+                        await OPS.UpdateContact();
                         break;
                     case "4":
-                        OBS.DeleteContact();
+                        await OPS.DeleteContact();
                         break;
                     case "5":
-                        Environment.Exit(0);    
+                        Environment.Exit(0);
                         break;
                     default:
                         Console.WriteLine("Only acceptable inputs are: '1' '2' '3' '4' '5'");
                         break;
                 }
             }
+
+
+            //CRUDMenu();
+
         }
+
+        //private void CRUDMenu()
+        //{
+        //    OBS = new Operations(client, p);
+        //    while (true)
+        //    {
+        //        Console.WriteLine("1. Add Contact");
+        //        Console.WriteLine("2. View Contact");
+        //        Console.WriteLine("3. Update Contact");
+        //        Console.WriteLine("4. Delete Contact");
+        //        Console.WriteLine("5. Exit");
+        //        var selection = Console.ReadLine();
+        //        switch (selection)
+        //        {
+        //            case "1":
+        //                OBS.Create();
+        //                break;
+        //            case "2":
+        //                OBS.ViewContact();
+        //                break;
+        //            case "3":
+        //                OBS.UpdateContact();
+        //                break;
+        //            case "4":
+        //                OBS.DeleteContact();
+        //                break;
+        //            case "5":
+        //                Environment.Exit(0);
+        //                break;
+        //            default:
+        //                Console.WriteLine("Only acceptable inputs are: '1' '2' '3' '4' '5'");
+        //                break;
+        //        }
+        //    }
+        //}
+
     }
 }
