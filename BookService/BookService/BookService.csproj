@@ -202,6 +202,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BookDetailDTO.cs" />
+    <Compile Include="Models\BookDTO.cs" />
     <Compile Include="Models\BookServiceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -335,7 +337,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50198</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

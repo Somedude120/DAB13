@@ -11,6 +11,8 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using BookService.Models;
 
+//Afbenyttelse af swagger: http://localhost:50198/swagger/ui/index
+
 namespace BookService.Controllers
 {
     public class BooksController : ApiController
@@ -35,17 +37,35 @@ namespace BookService.Controllers
         //        .Include(b => b.Author);
         //}
 
-        // GET: api/Books
-        public IQueryable<Book> GetBooks()
+        //DTO Get
+        // GET api/Books
+        public IQueryable<BookDTO> GetBooks()
         {
-            return db.Books;
+            var books = from b in db.Books
+                select new BookDTO()
+                {
+                    Id = b.Id,
+                    Title = b.Title,
+                    AuthorName = b.Author.Name
+                };
+
+            return books;
         }
 
-        // GET: api/Books/5
-        [ResponseType(typeof(Book))]
+        // GET api/Books/5
+        [ResponseType(typeof(BookDetailDTO))]
         public async Task<IHttpActionResult> GetBook(int id)
         {
-            Book book = await db.Books.FindAsync(id);
+            var book = await db.Books.Include(b => b.Author).Select(b =>
+                new BookDetailDTO()
+                {
+                    Id = b.Id,
+                    Title = b.Title,
+                    Year = b.Year,
+                    Price = b.Price,
+                    AuthorName = b.Author.Name,
+                    Genre = b.Genre
+                }).SingleOrDefaultAsync(b => b.Id == id);
             if (book == null)
             {
                 return NotFound();
@@ -53,43 +73,7 @@ namespace BookService.Controllers
 
             return Ok(book);
         }
-
-        // PUT: api/Books/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutBook(int id, Book book)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != book.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(book).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BookExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Books
+        //DTO ReturnPostBook
         [ResponseType(typeof(Book))]
         public async Task<IHttpActionResult> PostBook(Book book)
         {
@@ -101,37 +85,117 @@ namespace BookService.Controllers
             db.Books.Add(book);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = book.Id }, book);
-        }
+            // New code:
+            // Load author name
+            db.Entry(book).Reference(x => x.Author).Load();
 
-        // DELETE: api/Books/5
-        [ResponseType(typeof(Book))]
-        public async Task<IHttpActionResult> DeleteBook(int id)
-        {
-            Book book = await db.Books.FindAsync(id);
-            if (book == null)
+            var dto = new BookDTO()
             {
-                return NotFound();
-            }
+                Id = book.Id,
+                Title = book.Title,
+                AuthorName = book.Author.Name
+            };
 
-            db.Books.Remove(book);
-            await db.SaveChangesAsync();
-
-            return Ok(book);
+            return CreatedAtRoute("DefaultApi", new { id = book.Id }, dto);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //// GET: api/Books
+        //public IQueryable<Book> GetBooks()
+        //{
+        //    return db.Books;
+        //}
 
-        private bool BookExists(int id)
-        {
-            return db.Books.Count(e => e.Id == id) > 0;
-        }
+        //// GET: api/Books/5
+        //[ResponseType(typeof(Book))]
+        //public async Task<IHttpActionResult> GetBook(int id)
+        //{
+        //    Book book = await db.Books.FindAsync(id);
+        //    if (book == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return Ok(book);
+        //}
+
+        //// PUT: api/Books/5
+        //[ResponseType(typeof(void))]
+        //public async Task<IHttpActionResult> PutBook(int id, Book book)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    if (id != book.Id)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    db.Entry(book).State = EntityState.Modified;
+
+        //    try
+        //    {
+        //        await db.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!BookExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
+
+        //// POST: api/Books
+        //[ResponseType(typeof(Book))]
+        //public async Task<IHttpActionResult> PostBook(Book book)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    db.Books.Add(book);
+        //    await db.SaveChangesAsync();
+
+        //    return CreatedAtRoute("DefaultApi", new { id = book.Id }, book);
+        //}
+
+        //// DELETE: api/Books/5
+        //[ResponseType(typeof(Book))]
+        //public async Task<IHttpActionResult> DeleteBook(int id)
+        //{
+        //    Book book = await db.Books.FindAsync(id);
+        //    if (book == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    db.Books.Remove(book);
+        //    await db.SaveChangesAsync();
+
+        //    return Ok(book);
+        //}
+
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
+
+        //private bool BookExists(int id)
+        //{
+        //    return db.Books.Count(e => e.Id == id) > 0;
+        //}
     }
 }
