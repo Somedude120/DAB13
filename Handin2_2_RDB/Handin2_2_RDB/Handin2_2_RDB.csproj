@@ -57,8 +57,14 @@
     <Compile Include="Classes\Operations.cs" />
     <Compile Include="Classes\Persons.cs" />
     <Compile Include="Classes\Phone.cs" />
+    <Compile Include="Context\CrudRepository.cs" />
     <Compile Include="Context\PersonIndexContext.cs" />
+    <Compile Include="Context\Repository.cs" />
+    <Compile Include="Context\UnitOfWork.cs" />
     <Compile Include="Interface\IOperations.cs" />
+    <Compile Include="Interface\IOperationsRepository.cs" />
+    <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Interface\IUnitOfWork.cs" />
     <Compile Include="Migrations\201804021120103_Persons.cs" />
     <Compile Include="Migrations\201804021120103_Persons.Designer.cs">
       <DependentUpon>201804021120103_Persons.cs</DependentUpon>

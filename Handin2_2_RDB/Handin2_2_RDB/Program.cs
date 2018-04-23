@@ -22,17 +22,16 @@ namespace Handin2_2_RDB.Main
             
             try
             {
-
-
-                using (var db = new PersonIndexContext())
+                var db = new PersonIndexContext();
+                using (var unitOfWork = new UnitOfWork(new PersonIndexContext()))
                 {
-                    //Console.WriteLine("HANS mit em flammenwerfer"); //CRUCIAL DO NOT DELETE, IT WILL FUCK UP THE PROGRAM IF REMOVED
-                    Operations OPS = new Operations();
-                    int choice;
+                    
+                 //Console.WriteLine("HANS mit em flammenwerfer"); //CRUCIAL DO NOT DELETE, IT WILL FUCK UP THE PROGRAM IF REMOVED
+                 int choice;
 
                     do
                     {
-                        
+
                         //Tilføjet CRUD
                         Console.WriteLine("\nCRUD OPERATIONS\n--------------");
                         Console.WriteLine("1.Add new Contact");
@@ -46,16 +45,16 @@ namespace Handin2_2_RDB.Main
                         switch (choice)
                         {
                             case 1:
-                                OPS.AddContact(db);
+                                unitOfWork.Ops.AddContact(db);
                                 break;
                             case 2:
-                                OPS.ViewContact(db);
+                                unitOfWork.Ops.ViewContact(db);
                                 break;
                             case 3:
-                                OPS.UpdateContact(db);
+                                unitOfWork.Ops.UpdateContact(db);
                                 break;
                             case 4:
-                                OPS.DeleteContact(db);
+                                unitOfWork.Ops.DeleteContact(db);
                                 break;
                         }
                     } while (choice != 5);
