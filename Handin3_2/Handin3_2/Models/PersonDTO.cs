@@ -11,9 +11,5 @@
         public string SurName { get; set; }
 
         public string Email { get; set; }
-
-        public int? AddressList_AddressId { get; set; }
-
-        public virtual Address Address { get; set; }
     }
 }

@@ -17,25 +17,40 @@ namespace Handin3_2.Controllers
     {
         private PersonIndexContext db = new PersonIndexContext();
 
+        //// GET api/Books
+        //public IQueryable<BookDTO> GetBooks()
+        //{
+        //    var books = from b in db.Books
+        //        select new BookDTO()
+        //        {
+        //            Id = b.Id,
+        //            Title = b.Title,
+        //            AuthorName = b.Author.Name
+        //        };
+
+        //    return books;
+        //}
+
+
         // GET: api/People
-        public IQueryable<Person> GetPersons()
+        public IQueryable<PersonDTO> GetPersons()
         {
-            var books = from b in db.Persons
+            var person = from b in db.Persons
                 select new PersonDTO()
                 {
                     PersonId = b.PersonId,
                     Name = b.Name,
                     Email = b.Email
                 };
-            return db.Persons;
+            return person;
         }
 
         // GET: api/People/5
-        [ResponseType(typeof(Person))]
+        [ResponseType(typeof(PersonDTO))]
         public async Task<IHttpActionResult> GetPerson(int id)
         {
-            Person person = await db.Persons.FindAsync(id);
-            var book = await db.Persons.Include(b => b.Name).Select(b =>
+            var person = await db.Persons.FindAsync(id);
+            var people = await db.Persons.Include(b => b.Name).Select(b =>
                 new PersonDTO()
                 {
                     PersonId = b.PersonId,
@@ -43,15 +58,14 @@ namespace Handin3_2.Controllers
                     MiddleName = b.MiddleName,
                     SurName = b.SurName,
                     Email = b.Email,
-                    Address = b.Address
                 }).SingleOrDefaultAsync(b => b.PersonId == id);
-            if (book == null)
+            if (people == null)
                 if (person == null)
             {
                 return NotFound();
             }
 
-            return Ok(person);
+            return Ok(people);
         }
 
         // PUT: api/People/5
