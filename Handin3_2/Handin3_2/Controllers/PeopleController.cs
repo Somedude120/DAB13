@@ -102,31 +102,7 @@ namespace Handin3_2.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
-        [ResponseType(typeof(Person))]
-        public async Task<IHttpActionResult> PostBook(Person person)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Persons.Add(person);
-            await db.SaveChangesAsync();
-
-            // New code:
-            // Load author name
-            db.Entry(person).Reference(x => x.Name).Load();
-
-            var dto = new PersonDTO()
-            {
-                PersonId = person.PersonId,
-                Name = person.Name,
-            };
-
-            return CreatedAtRoute("DefaultApi", new { id = person.PersonId }, dto);
-        }
-
+        //Husk på at PersonID er en nøgle, derfor kan den IKKE RETTES PÅ. Så man skal bare skrive uden nøglen.
         // POST: api/People
         [ResponseType(typeof(Person))]
         public async Task<IHttpActionResult> PostPerson(Person person)
@@ -139,7 +115,18 @@ namespace Handin3_2.Controllers
             db.Persons.Add(person);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = person.PersonId }, person);
+            //db.Entry(person).Reference(x => x.Name).Load();
+
+            var dto = new PersonDTO()
+            {
+                PersonId = person.PersonId,
+                Name = person.Name,
+                MiddleName = person.MiddleName,
+                SurName = person.SurName,
+                Email = person.Email,
+            };
+
+            return CreatedAtRoute("DefaultApi", new { id = person.PersonId }, dto);
         }
 
         // DELETE: api/People/5
