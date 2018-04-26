@@ -22,18 +22,18 @@ namespace Handin3_2
 
             HttpConfiguration config = GlobalConfiguration.Configuration;
 
-
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            json.SerializerSettings.PreserveReferencesHandling =
-                Newtonsoft.Json.PreserveReferencesHandling.All;
-            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
-                = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
-                = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
-            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling
-                = Newtonsoft.Json.PreserveReferencesHandling.Objects;
-            var xml = GlobalConfiguration.Configuration.Formatters.XmlFormatter;
-            xml.UseXmlSerializer = true;
+            ////Det frembringer et ID til krydsreferencer, derfor skal man bruge DTO, brug dette hvis man er doven og ikke gider at lave DTOer
+            //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            //json.SerializerSettings.PreserveReferencesHandling =
+            //    Newtonsoft.Json.PreserveReferencesHandling.All;
+            //config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
+            //    = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
+            //    = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
+            //config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling
+            //    = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            //var xml = GlobalConfiguration.Configuration.Formatters.XmlFormatter;
+            //xml.UseXmlSerializer = true;
 
         }
     }
