@@ -205,12 +205,14 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AltAddress.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\CityDTO.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\C__MigrationHistory.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonDTO.cs" />
     <Compile Include="Models\PersonIndexContext.cs" />
     <Compile Include="Models\Phone.cs" />
+    <Compile Include="Models\PhoneDTO.cs" />
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -301,7 +303,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59616</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

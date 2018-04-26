@@ -35,13 +35,16 @@ namespace Handin3_2.Controllers
         // GET: api/People
         public IQueryable<PersonDTO> GetPersons()
         {
+            
+
             var person = from b in db.Persons
                 select new PersonDTO()
                 {
                     PersonId = b.PersonId,
                     Name = b.Name,
-                    Email = b.Email
+                    Email = b.Email,
                 };
+
             return person;
         }
 
