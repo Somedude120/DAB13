@@ -11,29 +11,57 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Handin3_2.Models;
 
+//I work hard every fucking day!
+
 namespace Handin3_2.Controllers
 {
+
+    //Shit so crazy, husk at sætte den her ind i webconfig
+    //<add name="PersonIndexContext" connectionString="data source=10.29.0.29;initial catalog=F184DABH2Gr13;persist security info=True;user id=F184DABH2Gr13;password=F184DABH2Gr13;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />
     public class ContactsController : ApiController
     {
         private PersonIndexContext db = new PersonIndexContext();
 
-        // GET: api/Contacts
-        public IQueryable<Contact> GetContacts()
-        {
-            return db.Contacts;
-        }
+        //// GET: api/Contacts
+        //public IQueryable<ContactDTO> GetContacts()
+        //{
+        //    return db.Contacts;
+        //}
 
-        // GET: api/Contacts/5
-        [ResponseType(typeof(Contact))]
-        public async Task<IHttpActionResult> GetContact(int id)
-        {
-            Contact contact = await db.Contacts.FindAsync(id);
-            if (contact == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/Contacts/5
+        //[ResponseType(typeof(Contact))]
+        //public async Task<IHttpActionResult> GetContact(int id)
+        //{
+        //    Contact contact = await db.Contacts.FindAsync(id);
+        //    if (contact == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(contact);
+        //    return Ok(contact);
+        //}
+        public IEnumerable<ContactDTO> GetContacts()
+        {
+            var contact = from b in db.Contacts
+                select new ContactDTO()
+                {
+                    ContactsId = b.ContactsId,
+                    Type = b.Type,
+ 
+                    City = b.Address.City.CityName,
+                    Street = b.Address.City.StreetName,
+                    Housenumber = b.Address.City.HouseNumber,
+                    Zip = b.Address.City.ZipCode,
+
+                    Persons = b.Persons.Select(ct => new PersonDTO()
+                    {
+                        FirstName = ct.Name,
+                        MiddleName = ct.MiddleName,
+                        LastName = ct.SurName,
+                    })
+                };
+      
+            return contact;
         }
 
         // PUT: api/Contacts/5

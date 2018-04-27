@@ -211,6 +211,7 @@
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\CityDTO.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactDTO.cs" />
     <Compile Include="Models\C__MigrationHistory.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PersonDTO.cs" />
