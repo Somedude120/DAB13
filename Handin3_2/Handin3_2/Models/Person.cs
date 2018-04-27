@@ -16,8 +16,10 @@ namespace Handin3_2.Models
             Phones = new HashSet<Phone>();
         }
 
+        
         public int PersonId { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public string MiddleName { get; set; }

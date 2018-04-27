@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -33,43 +34,50 @@ namespace Handin3_2.Controllers
 
 
         // GET: api/People
-        public IQueryable<PersonDTO> GetPersons()
+        public IEnumerable<PersonDTO> GetPersons()
         {
             
-
             var person = from b in db.Persons
-                select new PersonDTO()
-                {
-                    PersonId = b.PersonId,
-                    Name = b.Name,
-                    Email = b.Email,
-                };
-
+                         select new PersonDTO()
+                         {
+                             PersonId = b.PersonId,
+                             FirstName = b.Name,
+                             MiddleName = b.MiddleName,
+                             LastName = b.SurName,
+                             Email = b.Email,
+                             PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
+                             {
+                                 PhoneId = dt.PhoneId,
+                                 Info = dt.Info,
+                                 Number = dt.Number,     
+                             })
+                         };
+      
             return person;
         }
 
-        // GET: api/People/5
-        [ResponseType(typeof(PersonDTO))]
-        public async Task<IHttpActionResult> GetPerson(int id)
-        {
-            var person = await db.Persons.FindAsync(id);
-            var people = await db.Persons.Include(b => b.Name).Select(b =>
-                new PersonDTO()
-                {
-                    PersonId = b.PersonId,
-                    Name = b.Name,
-                    MiddleName = b.MiddleName,
-                    SurName = b.SurName,
-                    Email = b.Email,
-                }).SingleOrDefaultAsync(b => b.PersonId == id);
-            if (people == null)
-                if (person == null)
-            {
-                return NotFound();
-            }
+        //// GET: api/People/5
+        //[ResponseType(typeof(PersonDTO))]
+        //public async Task<IHttpActionResult> GetPerson(int id)
+        //{
+        //    var person = await db.Persons.FindAsync(id);
+        //    var people = await db.Persons.Include(b => b.Name).Select(b =>
+        //        new PersonDTO()
+        //        {
+        //            PersonId = b.PersonId,
+        //            Name = b.Name,
+        //            MiddleName = b.MiddleName,
+        //            SurName = b.SurName,
+        //            Email = b.Email,
+        //        }).SingleOrDefaultAsync(b => b.PersonId == id);
+        //    if (people == null)
+        //        if (person == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(people);
-        }
+        //    return Ok(people);
+        //}
 
         // PUT: api/People/5
         [ResponseType(typeof(void))]
@@ -120,12 +128,12 @@ namespace Handin3_2.Controllers
 
             //db.Entry(person).Reference(x => x.Name).Load();
 
-            var dto = new PersonDTO()
+            var dto = new PersonDTO(person)
             {
                 PersonId = person.PersonId,
-                Name = person.Name,
+                FirstName = person.Name,
                 MiddleName = person.MiddleName,
-                SurName = person.SurName,
+                LastName = person.SurName,
                 Email = person.Email,
             };
 

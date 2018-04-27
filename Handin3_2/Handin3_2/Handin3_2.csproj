@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201804251513267_initial.Designer.cs">
       <DependentUpon>201804251513267_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804271630496_PersonDTO.cs" />
+    <Compile Include="Migrations\201804271630496_PersonDTO.Designer.cs">
+      <DependentUpon>201804271630496_PersonDTO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AltAddress.cs" />
@@ -287,6 +291,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804251513267_initial.resx">
       <DependentUpon>201804251513267_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804271630496_PersonDTO.resx">
+      <DependentUpon>201804271630496_PersonDTO.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

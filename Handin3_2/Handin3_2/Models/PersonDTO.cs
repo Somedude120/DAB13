@@ -1,17 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using Handin3_2.Models;
 
-namespace Handin3_2.Models
+public class PersonDTO
 {
-    public class PersonDTO
-    {
-        public int PersonId { get; set; }
-        public string Name { get; set; }
-        public string MiddleName { get; set; }
-        public string SurName { get; set; }
-        public string Email { get; set; }
+    public PersonDTO()
+    { }
 
-        public PhoneDTO Phone { get; set; }
+    public PersonDTO(Person person)
+    {
+        PersonId = person.PersonId;
+        FirstName = person.Name;
+        MiddleName = person.MiddleName;
+        LastName = person.SurName;
+        Email = person.Email;
+        PhoneNumbers = new List<PhoneDTO>();
+
     }
+
+    public int PersonId { get; set; }
+    public string FirstName { get; set; }
+    public string MiddleName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
+    public IEnumerable<PhoneDTO> PhoneNumbers { get; set; }
 }
