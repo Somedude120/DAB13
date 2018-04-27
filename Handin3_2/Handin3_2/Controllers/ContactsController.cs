@@ -16,7 +16,7 @@ using Handin3_2.Models;
 namespace Handin3_2.Controllers
 {
 
-    //Shit so crazy, husk at sætte den her ind i webconfig
+    //Shit so crazy, husk at sætte den her ind i webconfig, I fucking noobs, lad min database på ase.au.dk være.
     //<add name="PersonIndexContext" connectionString="data source=10.29.0.29;initial catalog=F184DABH2Gr13;persist security info=True;user id=F184DABH2Gr13;password=F184DABH2Gr13;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />
     public class ContactsController : ApiController
     {
@@ -62,6 +62,35 @@ namespace Handin3_2.Controllers
                 };
       
             return contact;
+        }
+
+        // GET: api/Contact/5
+        [ResponseType(typeof(ContactDTO))]
+        public async Task<IHttpActionResult> GetPerson(int id)
+        {
+            var person = await db.Persons.FindAsync(id);
+            var people = await db.Persons.Include(b => b.Name).Select(b =>
+                new PersonDTO()
+                {
+                    PersonId = b.PersonId,
+                    FirstName = b.Name,
+                    MiddleName = b.MiddleName,
+                    LastName = b.SurName,
+                    Email = b.Email,
+                    PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
+                    {
+                        PhoneId = dt.PhoneId,
+                        Info = dt.Info,
+                        Number = dt.Number,
+                    })
+                }).SingleOrDefaultAsync(b => b.PersonId == id);
+            if (people == null)
+                if (person == null)
+                {
+                    return NotFound();
+                }
+
+            return Ok(people);
         }
 
         // PUT: api/Contacts/5
