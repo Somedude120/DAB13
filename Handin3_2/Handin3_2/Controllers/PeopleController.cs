@@ -30,7 +30,7 @@ namespace Handin3_2.Controllers
                              MiddleName = b.MiddleName,
                              LastName = b.SurName,
                              Email = b.Email,
-                             AddressID = b.AddressList_AddressId,
+                             AddressID = b.Addressid,
                              City = b.Address.City.CityName,
                              Street = b.Address.City.StreetName,
                              
@@ -59,7 +59,7 @@ namespace Handin3_2.Controllers
                     MiddleName = b.MiddleName,
                     LastName = b.SurName,
                     Email = b.Email,
-                    AddressID = b.AddressList_AddressId,
+                    AddressID = b.Addressid,
                     PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
                     {
                         PhoneId = dt.PhoneId,
@@ -124,7 +124,7 @@ namespace Handin3_2.Controllers
             await db.SaveChangesAsync();
 
             //Usikker på den her
-            db.Entry(person).Reference(x => x.Name).Load();
+            //db.Entry(person).Reference(x => x.Name).Load();
 
             var dto = new PersonDTO()
             {
@@ -133,7 +133,7 @@ namespace Handin3_2.Controllers
                 MiddleName = person.MiddleName,
                 LastName = person.SurName,
                 Email = person.Email,
-                AddressID = person.AddressList_AddressId,
+                AddressID = person.Addressid,
             };
 
             return CreatedAtRoute("DefaultApi", new { id = person.PersonId }, dto);

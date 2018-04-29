@@ -15,7 +15,6 @@ namespace Handin3_2.Models
             Contacts = new HashSet<Contact>();
             Phones = new HashSet<Phone>();
         }
-
         
         public int PersonId { get; set; }
 
@@ -28,7 +27,7 @@ namespace Handin3_2.Models
 
         public string Email { get; set; }
 
-        public int? AddressList_AddressId { get; set; }
+        public int? Addressid { get; set; }
 
         public virtual Address Address { get; set; }
 

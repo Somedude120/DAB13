@@ -61,7 +61,7 @@ namespace Handin3_2.Controllers
                         MiddleName = ct.MiddleName,
                         LastName = ct.SurName,
                         Email = ct.Email,
-                        AddressID = ct.AddressList_AddressId,
+                        AddressID = ct.Addressid,
                         PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
                         {
                             PhoneId = dt.PhoneId,
@@ -97,7 +97,7 @@ namespace Handin3_2.Controllers
                         MiddleName = ct.MiddleName,
                         LastName = ct.SurName,
                         Email = ct.Email,
-                        AddressID = ct.AddressList_AddressId,
+                        AddressID = ct.Addressid,
                         PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
                         {
                             PhoneId = dt.PhoneId,
@@ -162,7 +162,7 @@ namespace Handin3_2.Controllers
             db.Contacts.Add(contact);
             await db.SaveChangesAsync();
 
-            db.Entry(contact).Reference(x => x.Type).Load();
+            //db.Entry(contact).Reference(x => x.Type).Load();
 
             var dto = new ContactDTO()
             {

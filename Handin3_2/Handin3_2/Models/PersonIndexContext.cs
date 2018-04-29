@@ -31,7 +31,7 @@ namespace Handin3_2.Models
             modelBuilder.Entity<Address>()
                 .HasMany(e => e.Persons)
                 .WithOptional(e => e.Address)
-                .HasForeignKey(e => e.AddressList_AddressId);
+                .HasForeignKey(e => e.Addressid);
 
             modelBuilder.Entity<AltAddress>()
                 .HasMany(e => e.Cities)

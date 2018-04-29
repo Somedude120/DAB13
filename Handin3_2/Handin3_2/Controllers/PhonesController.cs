@@ -37,7 +37,7 @@ namespace Handin3_2.Controllers
                         MiddleName = ct.MiddleName,
                         LastName = ct.SurName,
                         Email = ct.Email,
-                        AddressID = ct.AddressList_AddressId,
+                        AddressID = ct.Addressid,
                         
                     })
                 };
@@ -67,7 +67,7 @@ namespace Handin3_2.Controllers
                         MiddleName = ct.MiddleName,
                         LastName = ct.SurName,
                         Email = ct.Email,
-                        AddressID = ct.AddressList_AddressId,
+                        AddressID = ct.Addressid,
 
                     })
                 }).SingleOrDefaultAsync(b => b.PhoneId == id);
@@ -141,7 +141,7 @@ namespace Handin3_2.Controllers
                     MiddleName = ct.MiddleName,
                     LastName = ct.SurName,
                     Email = ct.Email,
-                    AddressID = ct.AddressList_AddressId,
+                    AddressID = ct.Addressid,
 
                 })
             };

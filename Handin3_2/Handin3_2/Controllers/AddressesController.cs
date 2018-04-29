@@ -39,7 +39,7 @@ namespace Handin3_2.Controllers
                         MiddleName = ct.MiddleName,
                         LastName = ct.SurName,
                         Email = ct.Email,
-                        AddressID = ct.AddressList_AddressId,
+                        AddressID = ct.Addressid,
                         PhoneNumbers = c.Phones.Select(dt => new PhoneDTO()
                         {
                             PhoneId = dt.PhoneId,
@@ -75,7 +75,7 @@ namespace Handin3_2.Controllers
                         MiddleName = dt.MiddleName,
                         LastName = dt.SurName,
                         Email = dt.Email,
-                        AddressID = dt.AddressList_AddressId,
+                        AddressID = dt.Addressid,
 
                     })
                 }).SingleOrDefaultAsync(b => b.AddressId == id);
@@ -88,86 +88,86 @@ namespace Handin3_2.Controllers
             return Ok(addresses);
         }
 
-        // PUT: api/Addresses/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutAddress(int id, Address address)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/Addresses/5
+        //[ResponseType(typeof(void))]
+        //public async Task<IHttpActionResult> PutAddress(int id, Address address)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != address.AddressId)
-            {
-                return BadRequest();
-            }
+        //    if (id != address.AddressId)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(address).State = EntityState.Modified;
+        //    db.Entry(address).State = EntityState.Modified;
 
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AddressExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await db.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!AddressExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/Addresses
-        [ResponseType(typeof(Address))]
-        public async Task<IHttpActionResult> PostAddress(Address address)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/Addresses
+        //[ResponseType(typeof(Address))]
+        //public async Task<IHttpActionResult> PostAddress(Address address)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Addresses.Add(address);
-            db.Entry(address).Reference(x => x.City).Load();
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (AddressExists(address.AddressId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    db.Addresses.Add(address);
+        //    //db.Entry(address).Reference(x => x.City).Load();
+        //    try
+        //    {
+        //        await db.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (AddressExists(address.AddressId))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtRoute("DefaultApi", new { id = address.AddressId }, address);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = address.AddressId }, address);
+        //}
 
-        // DELETE: api/Addresses/5
-        [ResponseType(typeof(Address))]
-        public async Task<IHttpActionResult> DeleteAddress(int id)
-        {
-            Address address = await db.Addresses.FindAsync(id);
-            if (address == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Addresses/5
+        //[ResponseType(typeof(Address))]
+        //public async Task<IHttpActionResult> DeleteAddress(int id)
+        //{
+        //    Address address = await db.Addresses.FindAsync(id);
+        //    if (address == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Addresses.Remove(address);
-            await db.SaveChangesAsync();
+        //    db.Addresses.Remove(address);
+        //    await db.SaveChangesAsync();
 
-            return Ok(address);
-        }
+        //    return Ok(address);
+        //}
 
         protected override void Dispose(bool disposing)
         {
