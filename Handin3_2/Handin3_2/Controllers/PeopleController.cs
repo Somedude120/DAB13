@@ -17,21 +17,6 @@ namespace Handin3_2.Controllers
     public class PeopleController : ApiController
     {
         private PersonIndexContext db = new PersonIndexContext();
-
-        //// GET api/Books
-        //public IQueryable<BookDTO> GetBooks()
-        //{
-        //    var books = from b in db.Books
-        //        select new BookDTO()
-        //        {
-        //            Id = b.Id,
-        //            Title = b.Title,
-        //            AuthorName = b.Author.Name
-        //        };
-
-        //    return books;
-        //}
-
             //I work hard every muthafuckin day
         // GET: api/People
         public IEnumerable<PersonDTO> GetPersons()
@@ -45,6 +30,7 @@ namespace Handin3_2.Controllers
                              MiddleName = b.MiddleName,
                              LastName = b.SurName,
                              Email = b.Email,
+                             AddressID = b.AddressList_AddressId,
                              City = b.Address.City.CityName,
                              Street = b.Address.City.StreetName,
                              
@@ -73,6 +59,7 @@ namespace Handin3_2.Controllers
                     MiddleName = b.MiddleName,
                     LastName = b.SurName,
                     Email = b.Email,
+                    AddressID = b.AddressList_AddressId,
                     PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
                     {
                         PhoneId = dt.PhoneId,
@@ -136,7 +123,8 @@ namespace Handin3_2.Controllers
             db.Persons.Add(person);
             await db.SaveChangesAsync();
 
-            //db.Entry(person).Reference(x => x.Name).Load();
+            //Usikker på den her
+            db.Entry(person).Reference(x => x.Name).Load();
 
             var dto = new PersonDTO()
             {
@@ -145,6 +133,7 @@ namespace Handin3_2.Controllers
                 MiddleName = person.MiddleName,
                 LastName = person.SurName,
                 Email = person.Email,
+                AddressID = person.AddressList_AddressId,
             };
 
             return CreatedAtRoute("DefaultApi", new { id = person.PersonId }, dto);

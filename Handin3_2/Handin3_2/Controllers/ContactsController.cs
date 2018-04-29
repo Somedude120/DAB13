@@ -42,6 +42,8 @@ namespace Handin3_2.Controllers
         //}
         public IEnumerable<ContactDTO> GetContacts()
         {
+
+            
             var contact = from b in db.Contacts
                 select new ContactDTO()
                 {
@@ -53,11 +55,19 @@ namespace Handin3_2.Controllers
                     Housenumber = b.Address.City.HouseNumber,
                     Zip = b.Address.City.ZipCode,
 
-                    Persons = b.Persons.Select(ct => new PersonDTO()
+                    Persons = b.Persons.Select(ct => new SimplePersonDTO()
                     {
                         FirstName = ct.Name,
                         MiddleName = ct.MiddleName,
                         LastName = ct.SurName,
+                        Email = ct.Email,
+                        AddressID = ct.AddressList_AddressId,
+                        PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
+                        {
+                            PhoneId = dt.PhoneId,
+                            Info = dt.Info,
+                            Number = dt.Number,
+                        })
                     })
                 };
       
@@ -66,31 +76,43 @@ namespace Handin3_2.Controllers
 
         // GET: api/Contact/5
         [ResponseType(typeof(ContactDTO))]
-        public async Task<IHttpActionResult> GetPerson(int id)
+        public async Task<IHttpActionResult> GetContact(int id)
         {
-            var person = await db.Persons.FindAsync(id);
-            var people = await db.Persons.Include(b => b.Name).Select(b =>
-                new PersonDTO()
+
+            var contact = await db.Contacts.FindAsync(id);
+            var contacts = await db.Contacts.Include(b => b.ContactsId).Select(b =>
+                new ContactDTO()
                 {
-                    PersonId = b.PersonId,
-                    FirstName = b.Name,
-                    MiddleName = b.MiddleName,
-                    LastName = b.SurName,
-                    Email = b.Email,
-                    PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
+                    ContactsId = b.ContactsId,
+                    Type = b.Type,
+
+                    City = b.Address.City.CityName,
+                    Street = b.Address.City.StreetName,
+                    Housenumber = b.Address.City.HouseNumber,
+                    Zip = b.Address.City.ZipCode,
+
+                    Persons = b.Persons.Select(ct => new SimplePersonDTO()
                     {
-                        PhoneId = dt.PhoneId,
-                        Info = dt.Info,
-                        Number = dt.Number,
+                        FirstName = ct.Name,
+                        MiddleName = ct.MiddleName,
+                        LastName = ct.SurName,
+                        Email = ct.Email,
+                        AddressID = ct.AddressList_AddressId,
+                        PhoneNumbers = b.Phones.Select(dt => new PhoneDTO()
+                        {
+                            PhoneId = dt.PhoneId,
+                            Info = dt.Info,
+                            Number = dt.Number,
+                        })
                     })
-                }).SingleOrDefaultAsync(b => b.PersonId == id);
-            if (people == null)
-                if (person == null)
+                }).SingleOrDefaultAsync(b => b.ContactsId == id);
+            if (contacts == null)
+                if (contact == null)
                 {
                     return NotFound();
                 }
 
-            return Ok(people);
+            return Ok(contacts);
         }
 
         // PUT: api/Contacts/5
@@ -140,8 +162,30 @@ namespace Handin3_2.Controllers
             db.Contacts.Add(contact);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = contact.ContactsId }, contact);
+            db.Entry(contact).Reference(x => x.Type).Load();
+
+            var dto = new ContactDTO()
+            {
+                ContactsId = contact.ContactsId,
+                Type = contact.Type,
+                
+                City = contact.Address.City.CityName,
+                Street = contact.Address.City.StreetName,
+                Housenumber = contact.Address.City.HouseNumber,
+                Zip = contact.Address.City.ZipCode,
+                Address_AddressId = contact.Address_AddressId,
+                Persons = contact.Persons.Select(ct => new SimplePersonDTO()
+                {
+                    FirstName = ct.Name,
+                    MiddleName = ct.MiddleName,
+                    LastName = ct.SurName,
+                    
+                })
+            };
+
+            return CreatedAtRoute("DefaultApi", new { id = contact.ContactsId }, dto);
         }
+
 
         // DELETE: api/Contacts/5
         [ResponseType(typeof(Contact))]

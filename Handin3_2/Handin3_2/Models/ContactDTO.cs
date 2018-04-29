@@ -14,10 +14,9 @@ namespace Handin3_2.Models
         public string Street { get; set; }
         public int Zip { get; set; }
         public int Housenumber { get; set; }
+        public int? Address_AddressId { get; set; }
 
-        public IEnumerable<PersonDTO> Persons { get; set; }
-        //public virtual IEnumerable<PhoneDTO> PhoneNumbers { get; set; }
-        //public virtual ICollection<AltAddress> AltAddresses { get; set; }
+        public IEnumerable<SimplePersonDTO> Persons { get; set; }
         
     }
 }

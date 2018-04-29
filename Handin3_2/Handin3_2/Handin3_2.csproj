@@ -191,9 +191,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\PhonesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,8 +208,13 @@
     <Compile Include="Migrations\201804271630496_PersonDTO.Designer.cs">
       <DependentUpon>201804271630496_PersonDTO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804291306470_initial1.cs" />
+    <Compile Include="Migrations\201804291306470_initial1.Designer.cs">
+      <DependentUpon>201804291306470_initial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\AddressDTO.cs" />
     <Compile Include="Models\AltAddress.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\CityDTO.cs" />
@@ -295,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804271630496_PersonDTO.resx">
       <DependentUpon>201804271630496_PersonDTO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804291306470_initial1.resx">
+      <DependentUpon>201804291306470_initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
