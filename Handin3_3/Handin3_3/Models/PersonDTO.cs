@@ -11,23 +11,40 @@ using Swashbuckle.Swagger;
 
 namespace Handin3_3.Models
 {
-    public class PersonSimpleDTO
-    {
-        public string Id { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string LastName { get; set; }
-    }
-
-    public class PersonDetailDTO
+    public class PersonDTO
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
         [Required]
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
+        public string SurName { get; set; }
+        public string Email { get; set; }
+        public Phones[] Phone { get; set; }
+
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+    }
+    public class PersonSimpleDTO
+    {
+        public string Id { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
         public string LastName { get; set; }
-        public Contact Contact { get; set; }
+       
+    }
+
+    public class PersonDetailDTO
+    {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+        
+        public Contacts Contact { get; set; }
+        //public Phones Phone { get; set; }
+
 
         public override string ToString()
         {

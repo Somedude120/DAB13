@@ -47,7 +47,53 @@ namespace Handin3_3
             return results;
         }
 
+        //For contacts
+        public static async Task<IHttpActionResult> Post(Contacts person)
+        {
+            try
+            {
+                await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, person.Id));
+                return new BadRequestResult(new HttpRequestMessage());
+            }
+            catch (DocumentClientException de)
+            {
+                if (de.StatusCode == HttpStatusCode.NotFound)
+                {
+                    await client.CreateDocumentAsync(
+                        UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), person);
+                    return new OkResult(new HttpRequestMessage());
+                }
 
+                throw;
+            }
+        }
+        public static async Task<IHttpActionResult> Put(Contacts person)
+        {
+            try
+            {
+                await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, person.Id), person);
+                return new OkResult(new HttpRequestMessage());
+            }
+            catch (Exception)
+            {
+                return new NotFoundResult(new HttpRequestMessage());
+            }
+        }
+
+        public static async Task<IHttpActionResult> Delete(string id)
+        {
+            try
+            {
+                await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+                return new OkResult(new HttpRequestMessage());
+            }
+            catch (Exception)
+            {
+                return new NotFoundResult(new HttpRequestMessage());
+            }
+        }
+
+        //For person
         public static async Task<IHttpActionResult> Post(PersonDetailDTO person)
         {
             try
@@ -72,19 +118,6 @@ namespace Handin3_3
             try
             {
                 await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, person.Id), person);
-                return new OkResult(new HttpRequestMessage());
-            }
-            catch (Exception)
-            {
-                return new NotFoundResult(new HttpRequestMessage());
-            }
-        }
-
-        public static async Task<IHttpActionResult> Delete(string id)
-        {
-            try
-            {
-                await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
                 return new OkResult(new HttpRequestMessage());
             }
             catch (Exception)

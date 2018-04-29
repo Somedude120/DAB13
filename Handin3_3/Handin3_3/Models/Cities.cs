@@ -15,6 +15,6 @@ namespace Handin3_3.Models
         public string HouseNumber { get; set; }
         public string Zipcode { get; set; }
         public string CityName { get; set; }
-        public Contacts[] Contact { get; set; }
+        //public Contacts[] Contact { get; set; }
     }
 }

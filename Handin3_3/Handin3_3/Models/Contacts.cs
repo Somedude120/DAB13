@@ -8,6 +8,7 @@ using Microsoft.Azure.Documents.Client;
 using Newtonsoft.Json;
 namespace Handin3_3.Models
 {
+    //Alt bliver lagt sammen her
     public class Contacts
     {
         [JsonProperty(PropertyName = "id")]
@@ -18,6 +19,19 @@ namespace Handin3_3.Models
         public Addresses[] Address { get; set; }
         public AltAddresses[] AltAddress { get; set; }
         public bool IsRegistered { get; set; }
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+    }
+
+    public class ContactsDTO
+    {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+        public string Type { get; set; }
+        public Persons[] Person { get; set; }
+
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);

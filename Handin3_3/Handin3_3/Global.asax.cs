@@ -21,8 +21,10 @@ namespace Handin3_3
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //Initialisering af klasserne
-            DocumentDBRepository<PersonSimpleDTO>.Initialize();
-            DocumentDBRepository<PersonDetailDTO>.Initialize();
+            //DocumentDBRepository<PersonSimpleDTO>.Initialize();
+            //DocumentDBRepository<PersonDetailDTO>.Initialize();
+            DocumentDBRepository<ContactsDTO>.Initialize();
+            DocumentDBRepository<PersonDTO>.Initialize();
             DocumentDBRepository<Persons>.Initialize();
             DocumentDBRepository<Cities>.Initialize();
             DocumentDBRepository<Contacts>.Initialize();
